@@ -1,0 +1,1305 @@
+/* =========================================================
+   EBOOK HERO
+========================================================= */
+
+.ebook-hero {
+  position: relative;
+
+  width: 100%;
+
+  /* Compact desktop height */
+  min-height: 600px;
+
+  overflow: hidden;
+
+  background: #f8f1e5;
+
+  isolation: isolate;
+}
+
+
+/* =========================================================
+   BACKGROUND SLIDES
+========================================================= */
+
+.hero-backgrounds {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -3;
+
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-size: cover;
+
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+  opacity: 0;
+
+  transform: scale(1.035);
+
+  transition:
+    opacity 0.9s ease,
+    transform 7s ease;
+
+  pointer-events: none;
+}
+
+.hero-background-active {
+  opacity: 1;
+
+  transform: scale(1);
+}
+
+
+/* =========================================================
+   BACKGROUND OVERLAY
+========================================================= */
+
+.hero-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -2;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 249, 239, 0.97) 0%,
+      rgba(255, 249, 239, 0.92) 30%,
+      rgba(255, 249, 239, 0.62) 53%,
+      rgba(255, 249, 239, 0.08) 100%
+    );
+
+  backdrop-filter: blur(0.3px);
+}
+
+
+/* =========================================================
+   HERO INNER
+========================================================= */
+
+.hero-inner {
+  width:
+    min(
+      1400px,
+      calc(100% - 70px)
+    );
+
+  /* Reduced */
+  min-height: 535px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.95fr)
+    minmax(380px, 1.05fr);
+
+  align-items: center;
+
+  gap: 18px;
+
+  /* Reduced vertical spacing */
+  padding: 38px 0 68px;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.hero-content {
+  width: 100%;
+
+  max-width: 660px;
+
+  padding-left: 8px;
+}
+
+
+/* =========================================================
+   BADGE
+========================================================= */
+
+.hero-badge {
+  width: fit-content;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 7px 14px;
+
+  margin-bottom: 16px;
+
+  border:
+    1px solid
+    rgba(137, 76, 35, 0.25);
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 250, 241, 0.50);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  color: #74331f;
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  line-height: 1.3;
+
+  box-shadow:
+    0 7px 20px
+    rgba(90, 49, 23, 0.05);
+}
+
+.hero-badge-dot {
+  width: 6px;
+  height: 6px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #9a281e;
+
+  box-shadow:
+    0 0 0 4px
+    rgba(154, 40, 30, 0.08);
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.hero-title {
+  margin: 0;
+
+  color: #35231b;
+
+  font-family:
+    "Noto Serif Devanagari",
+    serif;
+
+  /*
+    Reduced from 67px max
+  */
+  font-size:
+    clamp(
+      33px,
+      3.45vw,
+      55px
+    );
+
+  line-height: 1.18;
+
+  font-weight: 700;
+
+  letter-spacing: -0.7px;
+}
+
+.hero-title span {
+  color: #8d211a;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.hero-description {
+  max-width: 600px;
+
+  margin: 17px 0 0;
+
+  color: #604c3f;
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 14.5px;
+
+  line-height: 1.7;
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.hero-features {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 7px 18px;
+
+  margin-top: 20px;
+}
+
+.hero-feature {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  color: #49382e;
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 500;
+
+  white-space: nowrap;
+}
+
+.hero-feature-icon {
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  color: #8b281c;
+
+  background:
+    rgba(255, 255, 255, 0.58);
+
+  border:
+    1px solid
+    rgba(126, 71, 37, 0.12);
+
+  box-shadow:
+    0 4px 12px
+    rgba(84, 46, 22, 0.05);
+
+  backdrop-filter: blur(10px);
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.hero-cta-wrapper {
+  margin-top: 22px;
+}
+
+.hero-cta {
+  min-height: 49px;
+
+  width: fit-content;
+
+  padding: 0 21px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  border-radius: 999px;
+
+  text-decoration: none;
+
+  color: #fff;
+
+  background:
+    linear-gradient(
+      135deg,
+      #9d291e,
+      #761c17
+    );
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  box-shadow:
+    0 11px 28px
+    rgba(119, 30, 23, 0.21);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.hero-cta:hover {
+  color: #fff;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 15px 32px
+    rgba(119, 30, 23, 0.28);
+}
+
+.hero-cta-book {
+  font-size: 17px;
+}
+
+.hero-cta-arrow {
+  font-size: 19px;
+
+  transition:
+    transform 0.25s ease;
+}
+
+.hero-cta:hover .hero-cta-arrow {
+  transform:
+    translateX(4px);
+}
+
+
+/* =========================================================
+   BOOK AREA
+========================================================= */
+
+.hero-book-area {
+  position: relative;
+
+  width: 100%;
+
+  /* Reduced */
+  min-height: 490px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-book {
+  position: relative;
+
+  z-index: 2;
+
+  width:
+    min(
+      100%,
+      510px
+    );
+
+  max-height: 510px;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(
+      0 25px 30px
+      rgba(63, 34, 17, 0.20)
+    );
+
+  user-select: none;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   BOOK GLOW
+========================================================= */
+
+.hero-book-glow {
+  position: absolute;
+
+  width: 350px;
+  height: 350px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(221, 161, 72, 0.26) 0%,
+      rgba(221, 161, 72, 0.10) 38%,
+      rgba(221, 161, 72, 0) 72%
+    );
+
+  filter: blur(11px);
+}
+
+
+/* =========================================================
+   BOTTOM AREA
+========================================================= */
+
+.hero-bottom {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  bottom: 13px;
+
+  width:
+    min(
+      1400px,
+      calc(100% - 70px)
+    );
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 18px;
+}
+
+
+/* =========================================================
+   BOTTOM TEXT
+========================================================= */
+
+.hero-bottom-text {
+  padding: 7px 16px;
+
+  border:
+    1px solid
+    rgba(125, 71, 36, 0.13);
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 250, 243, 0.40);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  color: #774126;
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  line-height: 1.3;
+
+  box-shadow:
+    0 6px 17px
+    rgba(75, 41, 20, 0.04);
+}
+
+
+/* =========================================================
+   GLASS SLIDER CONTAINER
+========================================================= */
+
+.hero-slider {
+  min-height: 35px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+
+  padding: 4px 6px;
+
+  border:
+    1px solid
+    rgba(123, 70, 37, 0.14);
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 250, 243, 0.38);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 8px 24px
+    rgba(71, 38, 18, 0.07);
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   SLIDER DOT BUTTON
+========================================================= */
+
+.hero-slider-dot {
+  position: relative;
+
+  width: 22px;
+  height: 22px;
+
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+
+  border-radius: 999px;
+
+  background:
+    rgba(126, 67, 34, 0.09);
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+  flex-shrink: 0;
+
+  transition:
+    width 0.42s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      ),
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* =========================================================
+   NORMAL DOT
+========================================================= */
+
+.hero-slider-circle {
+  position: relative;
+
+  z-index: 4;
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(103, 57, 31, 0.42);
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+/* =========================================================
+   ACTIVE SLIDER PILL
+========================================================= */
+
+.hero-slider-dot-active {
+  width: 72px;
+
+  background:
+    rgba(111, 30, 23, 0.78);
+
+  box-shadow:
+    0 5px 17px
+    rgba(111, 30, 23, 0.18);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+
+/* =========================================================
+   ACTIVE DOT
+========================================================= */
+
+.hero-slider-dot-active
+.hero-slider-circle {
+  width: 7px;
+  height: 7px;
+
+  background: #fff;
+
+  box-shadow:
+    0 0 0 4px
+    rgba(255, 255, 255, 0.10);
+}
+
+
+/* =========================================================
+   FULL LEFT → RIGHT PROGRESS
+========================================================= */
+
+.hero-slider-progress {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
+
+  transform-origin: left center;
+
+  transform:
+    scaleX(0);
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.07),
+      rgba(255, 218, 153, 0.34)
+    );
+
+  animation-name:
+    ebookSlideProgress;
+
+  animation-timing-function:
+    linear;
+
+  animation-fill-mode:
+    forwards;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   PROGRESS ANIMATION
+========================================================= */
+
+@keyframes ebookSlideProgress {
+
+  from {
+    transform:
+      scaleX(0);
+  }
+
+  to {
+    transform:
+      scaleX(1);
+  }
+
+}
+
+
+/* =========================================================
+   GLASS SHINE
+========================================================= */
+
+.hero-slider-dot-active::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 2;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      105deg,
+      transparent 25%,
+      rgba(255, 255, 255, 0.14) 48%,
+      transparent 70%
+    );
+
+  transform:
+    translateX(-120%);
+
+  animation:
+    ebookSliderShine
+    2.5s
+    ease-in-out
+    infinite;
+
+  pointer-events: none;
+}
+
+@keyframes ebookSliderShine {
+
+  0% {
+    transform:
+      translateX(-120%);
+  }
+
+  45%,
+  100% {
+    transform:
+      translateX(120%);
+  }
+
+}
+
+
+/* =========================================================
+   TEXT ANIMATION
+========================================================= */
+
+.hero-animate {
+  animation:
+    ebookHeroFadeUp
+    0.7s
+    cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    )
+    both;
+}
+
+.hero-delay-1 {
+  animation-delay: 0.07s;
+}
+
+.hero-delay-2 {
+  animation-delay: 0.14s;
+}
+
+.hero-delay-3 {
+  animation-delay: 0.21s;
+}
+
+@keyframes ebookHeroFadeUp {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(17px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+
+}
+
+
+/* =========================================================
+   BOOK ANIMATION
+========================================================= */
+
+.hero-animate-book {
+  animation:
+    ebookBookEnter
+    0.8s
+    cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    )
+    both;
+}
+
+@keyframes ebookBookEnter {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(22px)
+      scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+/* =========================================================
+   LARGE DESKTOP / LAPTOP
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .ebook-hero {
+    min-height: 570px;
+  }
+
+  .hero-inner {
+    width:
+      calc(100% - 50px);
+
+    min-height: 510px;
+
+    grid-template-columns:
+      minmax(0, 0.92fr)
+      minmax(340px, 1.08fr);
+
+    gap: 8px;
+
+    padding:
+      32px 0 62px;
+  }
+
+  .hero-title {
+    font-size:
+      clamp(
+        31px,
+        4vw,
+        50px
+      );
+  }
+
+  .hero-description {
+    font-size: 14px;
+  }
+
+  .hero-book-area {
+    min-height: 450px;
+  }
+
+  .hero-book {
+    width:
+      min(
+        100%,
+        460px
+      );
+
+    max-height: 460px;
+  }
+
+  .hero-bottom {
+    width:
+      calc(100% - 50px);
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .ebook-hero {
+    min-height: auto;
+  }
+
+  .hero-inner {
+    width:
+      calc(100% - 34px);
+
+    min-height: auto;
+
+    grid-template-columns: 1fr;
+
+    gap: 0;
+
+    padding:
+      35px 0 98px;
+
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    padding: 0;
+  }
+
+  .hero-badge {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-features {
+    justify-content: center;
+  }
+
+  .hero-cta-wrapper {
+    display: flex;
+
+    justify-content: center;
+  }
+
+  .hero-book-area {
+    min-height: 400px;
+
+    order: 2;
+  }
+
+  .hero-book {
+    width:
+      min(
+        78vw,
+        430px
+      );
+
+    max-height: 430px;
+  }
+
+  .hero-book-glow {
+    width: 300px;
+    height: 300px;
+  }
+
+  .hero-bottom {
+    width:
+      calc(100% - 34px);
+
+    bottom: 12px;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    gap: 7px;
+  }
+
+  .hero-bottom-text {
+    order: 2;
+  }
+
+  .hero-slider {
+    order: 1;
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255, 249, 239, 0.95),
+        rgba(255, 249, 239, 0.67) 53%,
+        rgba(255, 249, 239, 0.93)
+      );
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .hero-inner {
+    width:
+      calc(100% - 20px);
+
+    padding:
+      27px 0 91px;
+  }
+
+  .hero-badge {
+    max-width: 100%;
+
+    padding:
+      6px 11px;
+
+    margin-bottom: 13px;
+
+    font-size: 10px;
+  }
+
+  .hero-title {
+    font-size:
+      clamp(
+        26px,
+        7.7vw,
+        36px
+      );
+
+    line-height: 1.27;
+
+    letter-spacing: -0.3px;
+  }
+
+  .hero-description {
+    margin-top: 13px;
+
+    font-size: 12px;
+
+    line-height: 1.65;
+  }
+
+  .hero-features {
+    gap: 6px;
+
+    margin-top: 16px;
+  }
+
+  .hero-feature {
+    gap: 5px;
+
+    font-size: 9px;
+  }
+
+  .hero-feature-icon {
+    width: 24px;
+    height: 24px;
+
+    font-size: 10px;
+  }
+
+  .hero-cta-wrapper {
+    margin-top: 18px;
+  }
+
+  .hero-cta {
+    min-height: 45px;
+
+    padding:
+      0 17px;
+
+    gap: 8px;
+
+    font-size: 12px;
+  }
+
+  .hero-cta-book {
+    font-size: 15px;
+  }
+
+  .hero-cta-arrow {
+    font-size: 17px;
+  }
+
+  .hero-book-area {
+    min-height: 310px;
+  }
+
+  .hero-book {
+    width:
+      min(
+        88vw,
+        350px
+      );
+
+    max-height: 350px;
+  }
+
+  .hero-book-glow {
+    width: 245px;
+    height: 245px;
+  }
+
+
+  /* =============================================
+     MOBILE BOTTOM
+  ============================================= */
+
+  .hero-bottom {
+    width:
+      calc(100% - 20px);
+
+    bottom: 10px;
+
+    gap: 6px;
+  }
+
+  .hero-bottom-text {
+    max-width: 100%;
+
+    padding:
+      5px 10px;
+
+    font-size: 8px;
+
+    text-align: center;
+  }
+
+
+  /* =============================================
+     MOBILE SLIDER
+  ============================================= */
+
+  .hero-slider {
+    min-height: 31px;
+
+    gap: 4px;
+
+    padding:
+      4px 5px;
+  }
+
+  .hero-slider-dot {
+    width: 19px;
+    height: 19px;
+  }
+
+  .hero-slider-dot-active {
+    width: 61px;
+  }
+
+  .hero-slider-circle {
+    width: 5px;
+    height: 5px;
+  }
+
+  .hero-slider-dot-active
+  .hero-slider-circle {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .hero-inner {
+    width:
+      calc(100% - 16px);
+
+    padding:
+      24px 0 86px;
+  }
+
+  .hero-title {
+    font-size: 25px;
+
+    line-height: 1.25;
+  }
+
+  .hero-description {
+    font-size: 11px;
+
+    line-height: 1.6;
+  }
+
+  .hero-features {
+    gap: 5px;
+
+    margin-top: 14px;
+  }
+
+  .hero-feature {
+    font-size: 8px;
+  }
+
+  .hero-feature-icon {
+    width: 22px;
+    height: 22px;
+
+    font-size: 9px;
+  }
+
+  .hero-cta {
+    min-height: 43px;
+
+    padding:
+      0 15px;
+
+    font-size: 11px;
+  }
+
+  .hero-book-area {
+    min-height: 280px;
+  }
+
+  .hero-book {
+    width:
+      min(
+        90vw,
+        315px
+      );
+
+    max-height: 315px;
+  }
+
+  .hero-slider {
+    min-height: 29px;
+  }
+
+  .hero-slider-dot {
+    width: 18px;
+    height: 18px;
+  }
+
+  .hero-slider-dot-active {
+    width: 55px;
+  }
+
+  .hero-slider-circle {
+    width: 4px;
+    height: 4px;
+  }
+
+  .hero-bottom-text {
+    font-size: 7px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hero-background,
+  .hero-slider-progress,
+  .hero-slider-dot-active::after,
+  .hero-animate,
+  .hero-animate-book {
+
+    animation: none !important;
+
+    transition: none !important;
+  }
+}

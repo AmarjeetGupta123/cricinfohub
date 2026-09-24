@@ -1,0 +1,1601 @@
+/* =========================================================
+   RANKING PAGE
+========================================================= */
+
+.ranking-page {
+  width: 100%;
+  padding: 0.5rem;
+  min-height: 100%;
+  color: var(--text-main);
+  padding-bottom: 30px;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.ranking-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.ranking-heading {
+  min-width: 0;
+}
+
+.ranking-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+
+  color: var(--pitch);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.ranking-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--pitch);
+
+  box-shadow:
+    0 0 0 4px rgba(126, 217, 87, 0.08),
+    0 0 12px rgba(126, 217, 87, 0.35);
+
+  animation: rankingPulse 2s ease-in-out infinite;
+}
+
+@keyframes rankingPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.45;
+  }
+}
+
+.ranking-heading h1 {
+  margin: 0;
+
+  font-size: clamp(1.6rem, 2.6vw, 2.25rem);
+  line-height: 1.15;
+  font-weight: 850;
+  letter-spacing: -0.7px;
+}
+
+.ranking-heading p {
+  margin: 8px 0 0;
+
+  max-width: 620px;
+
+  color: var(--text-soft);
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.ranking-header-icon {
+  width: 58px;
+  height: 58px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(126, 217, 87, 0.12),
+      rgba(49, 130, 206, 0.08)
+    );
+
+  border: 1px solid rgba(126, 217, 87, 0.16);
+
+  color: var(--pitch);
+  font-size: 1.35rem;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.03),
+    0 12px 30px rgba(0, 0, 0, 0.14);
+}
+
+/* =========================================================
+   CONTROLS
+========================================================= */
+
+.ranking-controls {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: 24px;
+
+  padding: 17px;
+
+  margin-bottom: 18px;
+
+  border: 1px solid var(--border-soft);
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.025),
+      rgba(255, 255, 255, 0.008)
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.025),
+    0 12px 35px rgba(0, 0, 0, 0.08);
+}
+
+.ranking-control-block {
+  min-width: 0;
+}
+
+.control-label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: var(--text-muted);
+
+  font-size: 0.59rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   SEGMENT
+========================================================= */
+
+.ranking-segment {
+  display: inline-flex;
+
+  padding: 3px;
+
+  border-radius: 10px;
+
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid var(--border-soft);
+}
+
+.ranking-segment button {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  min-width: 78px;
+
+  padding: 8px 13px;
+
+  border: 0;
+  border-radius: 7px;
+
+  background: transparent;
+
+  color: var(--text-muted);
+
+  font-size: 0.69rem;
+  font-weight: 750;
+
+  cursor: pointer;
+
+  transition:
+    color 0.22s ease,
+    background 0.22s ease,
+    transform 0.22s ease;
+}
+
+.ranking-segment button:hover {
+  color: var(--text-main);
+}
+
+.ranking-segment button.active {
+  color: #07110a;
+
+  background: var(--pitch);
+
+  box-shadow:
+    0 4px 14px rgba(126, 217, 87, 0.16);
+}
+
+/* =========================================================
+   FORMAT TABS
+========================================================= */
+
+.ranking-tabs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ranking-tabs button {
+  position: relative;
+
+  padding: 9px 13px;
+
+  border: 0;
+  background: transparent;
+
+  color: var(--text-muted);
+
+  font-size: 0.69rem;
+  font-weight: 750;
+
+  cursor: pointer;
+
+  transition:
+    color 0.22s ease,
+    transform 0.22s ease;
+}
+
+.ranking-tabs button:hover {
+  color: var(--text-main);
+}
+
+.ranking-tabs button.active {
+  color: var(--text-main);
+}
+
+.tab-active-line {
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  width: 22px;
+  height: 2px;
+
+  transform: translateX(-50%);
+
+  border-radius: 10px;
+
+  background: var(--pitch);
+
+  box-shadow: 0 0 9px rgba(126, 217, 87, 0.35);
+}
+
+/* =========================================================
+   TYPE TABS
+========================================================= */
+
+.ranking-type-control {
+  justify-self: end;
+}
+
+.ranking-type-tabs {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ranking-type-tabs button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 8px 11px;
+
+  border-radius: 9px;
+
+  border: 1px solid transparent;
+
+  background: transparent;
+
+  color: var(--text-muted);
+
+  font-size: 0.66rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.22s ease,
+    border-color 0.22s ease,
+    color 0.22s ease,
+    transform 0.22s ease;
+}
+
+.ranking-type-tabs button:hover {
+  color: var(--text-main);
+
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.ranking-type-tabs button.active {
+  color: var(--pitch);
+
+  background: rgba(126, 217, 87, 0.08);
+
+  border-color: rgba(126, 217, 87, 0.18);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+.ranking-type-tabs button i {
+  font-size: 0.75rem;
+}
+
+/* =========================================================
+   SELECTION BAR
+========================================================= */
+
+.ranking-selection-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+
+  padding: 13px 15px;
+
+  margin-bottom: 20px;
+
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.018);
+  border: 1px solid var(--border-soft);
+}
+
+.selection-kicker {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: var(--text-muted);
+
+  font-size: 0.55rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.ranking-selection-bar strong {
+  color: var(--text-main);
+
+  font-size: 0.74rem;
+  font-weight: 750;
+}
+
+.ranking-total {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  color: var(--text-soft);
+
+  font-size: 0.64rem;
+  font-weight: 700;
+}
+
+.ranking-total i {
+  color: var(--pitch);
+}
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.section-title-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+
+  margin-bottom: 14px;
+}
+
+.section-kicker {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: var(--pitch);
+
+  font-size: 0.57rem;
+  font-weight: 850;
+  letter-spacing: 0.15em;
+}
+
+.section-title-row h2 {
+  margin: 0;
+
+  color: var(--text-main);
+
+  font-size: 1.08rem;
+  line-height: 1.3;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+}
+
+.ranking-format-pill {
+  padding: 5px 9px;
+
+  border-radius: 7px;
+
+  color: var(--text-soft);
+
+  background: rgba(49, 130, 206, 0.08);
+
+  border: 1px solid rgba(49, 130, 206, 0.15);
+
+  font-size: 0.57rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   TOP RANKING
+========================================================= */
+
+.top-ranking-section {
+  margin-bottom: 32px;
+}
+
+.top-ranking-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(260px, 1.35fr)
+    repeat(4, minmax(175px, 1fr));
+
+  gap: 13px;
+}
+
+/* =========================================================
+   TOP CARD
+========================================================= */
+
+.top-rank-card {
+  position: relative;
+
+  min-height: 238px;
+
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 16px;
+
+  border-radius: 16px;
+
+  background:
+    radial-gradient(
+      circle at 90% 0%,
+      rgba(126, 217, 87, 0.07),
+      transparent 38%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.035),
+      rgba(255, 255, 255, 0.012)
+    );
+
+  border: 1px solid var(--border-soft);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.025),
+    0 12px 30px rgba(0, 0, 0, 0.1);
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.top-rank-card:hover {
+  border-color: rgba(126, 217, 87, 0.2);
+
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.17),
+    0 0 0 1px rgba(126, 217, 87, 0.035);
+}
+
+.top-rank-card.rank-1 {
+  min-height: 270px;
+
+  background:
+    radial-gradient(
+      circle at 90% 5%,
+      rgba(126, 217, 87, 0.12),
+      transparent 42%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(126, 217, 87, 0.055),
+      rgba(255, 255, 255, 0.012)
+    );
+
+  border-color: rgba(126, 217, 87, 0.19);
+}
+
+/* =========================================================
+   CARD NUMBER
+========================================================= */
+
+.top-card-number {
+  position: relative;
+  z-index: 3;
+
+  display: flex;
+  justify-content: flex-end;
+}
+
+.top-card-number span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 34px;
+  height: 25px;
+
+  padding: 0 7px;
+
+  border-radius: 7px;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  color: var(--text-muted);
+
+  font-size: 0.63rem;
+  font-weight: 850;
+}
+
+/* =========================================================
+   PLAYER IMAGE
+========================================================= */
+
+.top-ranking-image {
+  position: absolute;
+
+  right: 8px;
+  bottom: 65px;
+
+  width: 112px;
+  height: 150px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  pointer-events: none;
+
+  opacity: 0.92;
+
+  z-index: 1;
+}
+
+.top-team-image {
+  width: 96px;
+  height: 96px;
+  right: 14px;
+  bottom: 76px;
+}
+
+.top-ranking-image::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 75%;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(8, 16, 28, 0.95),
+      rgba(8, 16, 28, 0)
+    );
+}
+
+.top-ranking-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: bottom center;
+
+  filter:
+    drop-shadow(0 12px 18px rgba(0, 0, 0, 0.35));
+}
+
+/* =========================================================
+   CARD BODY
+========================================================= */
+
+.top-card-body {
+  position: relative;
+  z-index: 2;
+
+  margin-top: auto;
+
+  max-width: 75%;
+}
+
+.top-card-type {
+  margin-bottom: 4px;
+
+  color: var(--pitch);
+
+  font-size: 0.53rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+}
+
+.top-card-body h3 {
+  margin: 0;
+
+  color: var(--text-main);
+
+  font-size: 1rem;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.rank-1 .top-card-body h3 {
+  font-size: 1.22rem;
+}
+
+.top-country {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  margin-top: 7px;
+
+  color: var(--text-soft);
+
+  font-size: 0.62rem;
+  font-weight: 650;
+}
+
+.country-dot {
+  width: 6px;
+  height: 6px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: var(--pitch);
+}
+
+/* =========================================================
+   CARD FOOTER
+========================================================= */
+
+.top-card-footer {
+  position: relative;
+  z-index: 3;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  padding-top: 12px;
+  margin-top: 12px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.top-card-footer > div:first-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.top-card-footer span {
+  color: var(--text-muted);
+
+  font-size: 0.5rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.top-card-footer strong {
+  margin-top: 2px;
+
+  color: var(--text-main);
+
+  font-size: 1rem;
+  font-weight: 850;
+}
+
+.rank-change {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  font-size: 0.6rem;
+  font-weight: 800;
+}
+
+.rank-change.up {
+  color: var(--pitch);
+}
+
+.rank-change.down {
+  color: #ff6f7d;
+}
+
+.rank-change.neutral {
+  color: var(--text-muted);
+}
+
+/* =========================================================
+   NUMBER ONE BADGE
+========================================================= */
+
+.number-one-badge {
+  position: absolute;
+
+  left: 15px;
+  top: 15px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+
+  padding: 5px 8px;
+
+  border-radius: 7px;
+
+  color: var(--pitch);
+
+  background: rgba(126, 217, 87, 0.08);
+
+  border: 1px solid rgba(126, 217, 87, 0.15);
+
+  font-size: 0.56rem;
+  font-weight: 850;
+}
+
+/* =========================================================
+   TABLE SECTION
+========================================================= */
+
+.ranking-table-section {
+  margin-top: 10px;
+}
+
+.table-info {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  color: var(--text-muted);
+
+  font-size: 0.59rem;
+  font-weight: 650;
+}
+
+.table-info i {
+  color: var(--pitch);
+}
+
+/* =========================================================
+   TABLE CARD
+========================================================= */
+
+.ranking-table-card {
+  overflow: hidden;
+
+  border: 1px solid var(--border-soft);
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.025),
+      rgba(255, 255, 255, 0.008)
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.02),
+    0 14px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================================================
+   TABLE HEAD
+========================================================= */
+
+.ranking-table-head {
+  display: grid;
+
+  grid-template-columns:
+    70px
+    80px
+    minmax(210px, 1.4fr)
+    minmax(140px, 1fr)
+    105px
+    125px;
+
+  align-items: center;
+
+  padding: 11px 15px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  border-bottom: 1px solid var(--border-soft);
+
+  color: var(--text-muted);
+
+  font-size: 0.53rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+}
+
+/* =========================================================
+   TABLE ROW
+========================================================= */
+
+.ranking-table-row {
+  display: grid;
+
+  grid-template-columns:
+    70px
+    80px
+    minmax(210px, 1.4fr)
+    minmax(140px, 1fr)
+    105px
+    125px;
+
+  align-items: center;
+
+  min-height: 65px;
+
+  padding: 8px 15px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.035);
+
+  transition:
+    background 0.22s ease,
+    padding 0.22s ease;
+}
+
+.ranking-table-row:last-child {
+  border-bottom: 0;
+}
+
+.ranking-table-row:hover {
+  background: rgba(126, 217, 87, 0.025);
+
+  padding-left: 18px;
+}
+
+.rank-cell span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+
+  border-radius: 8px;
+
+  color: var(--text-soft);
+
+  background: rgba(255, 255, 255, 0.035);
+
+  font-size: 0.65rem;
+  font-weight: 800;
+}
+
+/* =========================================================
+   NAME CELL
+========================================================= */
+
+.name-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  min-width: 0;
+}
+
+.name-avatar {
+  width: 34px;
+  height: 34px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  color: var(--pitch);
+
+  background: rgba(126, 217, 87, 0.07);
+
+  border: 1px solid rgba(126, 217, 87, 0.1);
+
+  font-size: 0.8rem;
+}
+
+.name-cell > div:last-child {
+  min-width: 0;
+}
+
+.name-cell strong {
+  display: block;
+
+  overflow: hidden;
+
+  color: var(--text-main);
+
+  font-size: 0.71rem;
+  font-weight: 750;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.name-cell small {
+  display: block;
+
+  margin-top: 2px;
+
+  color: var(--text-muted);
+
+  font-size: 0.52rem;
+}
+
+/* =========================================================
+   COUNTRY
+========================================================= */
+
+.country-cell {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  overflow: hidden;
+
+  color: var(--text-soft);
+
+  font-size: 0.62rem;
+  font-weight: 650;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.country-mini-dot {
+  width: 5px;
+  height: 5px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: var(--pitch);
+}
+
+/* =========================================================
+   RATING
+========================================================= */
+
+.rating-cell {
+  color: var(--text-main);
+
+  font-size: 0.76rem;
+  font-weight: 850;
+}
+
+.career-best-cell {
+  color: var(--text-soft);
+
+  font-size: 0.68rem;
+  font-weight: 750;
+
+  white-space: nowrap;
+}
+
+/* =========================================================
+   CHANGE
+========================================================= */
+
+.change-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  font-size: 0.62rem;
+  font-weight: 800;
+}
+
+.change-cell.up {
+  color: var(--pitch);
+}
+
+.change-cell.down {
+  color: #ff6f7d;
+}
+
+.change-cell.neutral {
+  color: var(--text-muted);
+}
+
+/* =========================================================
+   FOOTER META
+========================================================= */
+
+.ranking-footer-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 10px 22px;
+
+  margin-top: 17px;
+  padding: 12px 2px;
+
+  color: var(--text-muted);
+
+  font-size: 0.57rem;
+}
+
+.ranking-footer-meta > div {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ranking-footer-meta i {
+  color: var(--pitch);
+}
+
+.ranking-footer-meta strong {
+  color: var(--text-soft);
+
+  font-weight: 700;
+}
+
+.ranking-source {
+  margin-left: auto;
+
+  color: var(--text-muted);
+
+  font-size: 0.52rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.ranking-error,
+.ranking-empty {
+  min-height: 300px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 35px;
+
+  text-align: center;
+
+  border-radius: 16px;
+
+  border: 1px solid var(--border-soft);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.025),
+      rgba(255, 255, 255, 0.008)
+    );
+}
+
+.error-icon,
+.empty-icon {
+  width: 54px;
+  height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 13px;
+
+  border-radius: 15px;
+
+  background: rgba(255, 255, 255, 0.035);
+
+  color: var(--text-muted);
+
+  font-size: 1.25rem;
+}
+
+.error-icon {
+  color: #ff6f7d;
+}
+
+.ranking-error h3,
+.ranking-empty h3 {
+  margin: 0;
+
+  color: var(--text-main);
+
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.ranking-error p,
+.ranking-empty p {
+  max-width: 450px;
+
+  margin: 7px 0 16px;
+
+  color: var(--text-muted);
+
+  font-size: 0.66rem;
+  line-height: 1.6;
+}
+
+.ranking-error button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 9px 14px;
+
+  border: 0;
+  border-radius: 9px;
+
+  background: var(--pitch);
+
+  color: #07110a;
+
+  font-size: 0.64rem;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.ranking-error button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 18px rgba(126, 217, 87, 0.16);
+}
+
+/* =========================================================
+   SKELETON
+========================================================= */
+
+.ranking-skeleton {
+  animation: skeletonFade 0.4s ease;
+}
+
+@keyframes skeletonFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.skeleton-section-heading {
+  margin-bottom: 14px;
+}
+
+.skeleton-line {
+  position: relative;
+
+  overflow: hidden;
+
+  height: 9px;
+
+  border-radius: 6px;
+
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.skeleton-line::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  transform: translateX(-100%);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.05),
+      transparent
+    );
+
+  animation: skeletonShimmer 1.3s infinite;
+}
+
+@keyframes skeletonShimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.skeleton-line.tiny {
+  width: 30px;
+}
+
+.skeleton-line.small {
+  width: 70px;
+}
+
+.skeleton-line.medium {
+  width: 120px;
+}
+
+.skeleton-line.large {
+  width: 180px;
+}
+
+.skeleton-top-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(260px, 1.35fr)
+    repeat(4, minmax(175px, 1fr));
+
+  gap: 13px;
+
+  margin-bottom: 30px;
+}
+
+.skeleton-card {
+  min-height: 238px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: flex-end;
+
+  padding: 16px;
+
+  border-radius: 16px;
+
+  border: 1px solid var(--border-soft);
+
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.skeleton-circle {
+  width: 45px;
+  height: 45px;
+
+  margin-bottom: auto;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.skeleton-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skeleton-table {
+  overflow: hidden;
+
+  border-radius: 15px;
+
+  border: 1px solid var(--border-soft);
+
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.skeleton-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 63px;
+
+  padding: 10px 15px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.035);
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1200px) {
+  .ranking-controls {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ranking-type-control {
+    grid-column: 1 / -1;
+
+    justify-self: start;
+  }
+
+  .ranking-type-tabs {
+    justify-content: flex-start;
+  }
+
+  .top-ranking-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .top-rank-card.rank-1 {
+    grid-column: span 2;
+  }
+
+  .skeleton-top-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .skeleton-card:first-child {
+    grid-column: span 2;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767.98px) {
+  .ranking-page {
+    padding-bottom: 20px;
+    padding: 0.25rem;
+  }
+
+  .ranking-page-header {
+    align-items: flex-start;
+
+    margin-bottom: 18px;
+  }
+
+  .ranking-heading h1 {
+    font-size: 1.45rem;
+  }
+
+  .ranking-heading p {
+    font-size: 0.68rem;
+  }
+
+  .ranking-header-icon {
+    width: 45px;
+    height: 45px;
+
+    border-radius: 12px;
+
+    font-size: 1rem;
+  }
+
+  /* CONTROLS */
+
+  .ranking-controls {
+    grid-template-columns: 1fr;
+
+    gap: 15px;
+
+    padding: 13px;
+
+    border-radius: 13px;
+  }
+
+  .ranking-type-control {
+    grid-column: auto;
+
+    justify-self: stretch;
+  }
+
+  .ranking-type-tabs {
+    justify-content: flex-start;
+  }
+
+  .ranking-type-tabs button {
+    flex: 1;
+
+    justify-content: center;
+
+    min-width: 0;
+  }
+
+  .ranking-type-tabs button span {
+    font-size: 0.58rem;
+  }
+
+  .ranking-selection-bar {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 8px;
+
+    padding: 11px 12px;
+  }
+
+  /* TOP */
+
+  .section-title-row {
+    align-items: center;
+
+    margin-bottom: 11px;
+  }
+
+  .section-title-row h2 {
+    font-size: 0.92rem;
+  }
+
+  .top-ranking-grid {
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+  }
+
+  .top-rank-card,
+  .top-rank-card.rank-1 {
+    min-height: 190px;
+  }
+
+  .top-rank-card.rank-1 {
+    grid-column: auto;
+  }
+
+  .top-ranking-image {
+    width: 105px;
+    height: 135px;
+
+    right: 64px;
+    bottom: 35px;
+  }
+
+  .top-team-image {
+    width: 82px;
+    height: 82px;
+    right: 10px;
+    bottom: 67px;
+  }
+
+  .top-card-body {
+    max-width: 65%;
+  }
+
+  .rank-1 .top-card-body h3 {
+    font-size: 1.05rem;
+  }
+
+  /* TABLE */
+
+  .ranking-table-card {
+    overflow-x: auto;
+  }
+
+  .ranking-table-head,
+  .ranking-table-row {
+    min-width: 705px;
+  }
+
+  .ranking-table-head {
+    grid-template-columns:
+      55px
+      75px
+      220px
+      145px
+      90px
+      120px;
+  }
+
+  .ranking-table-row {
+    grid-template-columns:
+      55px
+      75px
+      220px
+      145px
+      90px
+      120px;
+  }
+
+  .table-info {
+    display: none;
+  }
+
+  .ranking-footer-meta {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 8px;
+  }
+
+  .ranking-source {
+    margin-left: 0;
+  }
+
+  /* SKELETON */
+
+  .skeleton-top-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skeleton-card:first-child {
+    grid-column: auto;
+  }
+
+  .skeleton-card {
+    min-height: 190px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+  .ranking-eyebrow {
+    font-size: 0.58rem;
+  }
+
+  .ranking-heading h1 {
+    font-size: 1.3rem;
+  }
+
+  .ranking-segment {
+    width: 100%;
+  }
+
+  .ranking-segment button {
+    flex: 1;
+  }
+
+  .ranking-tabs {
+    width: 100%;
+
+    justify-content: space-between;
+  }
+
+  .ranking-tabs button {
+    flex: 1;
+
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .ranking-type-tabs {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ranking-type-tabs button {
+    width: 100%;
+  }
+}

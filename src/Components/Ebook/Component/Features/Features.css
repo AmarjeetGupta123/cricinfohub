@@ -1,0 +1,912 @@
+/* =========================================================
+   FEATURES SECTION
+========================================================= */
+
+.ebook-features-section {
+  position: relative;
+
+  width: 100%;
+
+  padding: 90px 0 92px;
+
+  overflow: hidden;
+
+  background:
+    #fffaf3;
+
+  color: #39261c;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.ebook-features-section::before {
+  content: "";
+
+  position: absolute;
+
+  width: 430px;
+  height: 430px;
+
+  top: -220px;
+  left: -210px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(194, 142, 80, 0.10),
+      transparent 70%
+    );
+
+  pointer-events: none;
+}
+
+.ebook-features-section::after {
+  content: "";
+
+  position: absolute;
+
+  width: 360px;
+  height: 360px;
+
+  right: -190px;
+  bottom: -200px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(139, 45, 30, 0.055),
+      transparent 70%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.ebook-features-container {
+  position: relative;
+
+  width:
+    min(
+      1180px,
+      calc(100% - 60px)
+    );
+
+  margin: 0 auto;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.features-heading {
+  text-align: center;
+
+  margin-bottom: 48px;
+}
+
+
+/* =========================================================
+   BADGE
+========================================================= */
+
+.features-badge {
+  width: fit-content;
+
+  margin: 0 auto 15px;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 7px 17px;
+
+  border:
+    1px solid
+    rgba(154, 94, 44, 0.25);
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 249, 239, 0.72);
+
+  color: #8a3921;
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.3px;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.features-badge span:first-child {
+  color: #bc7839;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.features-heading h2 {
+  margin: 0;
+
+  color: #39251b;
+
+  font-family:
+    "Noto Serif Devanagari",
+    serif;
+
+  font-size:
+    clamp(
+      34px,
+      4vw,
+      53px
+    );
+
+  line-height: 1.25;
+
+  font-weight: 700;
+
+  letter-spacing: -0.5px;
+}
+
+.features-heading h2 span {
+  display: block;
+
+  color: #8b2c1e;
+}
+
+
+/* =========================================================
+   DECORATION
+========================================================= */
+
+.features-decoration {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 11px;
+
+  margin:
+    12px auto 13px;
+}
+
+.features-decoration span {
+  width: 58px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #c4935d
+    );
+}
+
+.features-decoration span:last-child {
+  background:
+    linear-gradient(
+      90deg,
+      #c4935d,
+      transparent
+    );
+}
+
+.features-decoration b {
+  color: #bd7c42;
+
+  font-size: 20px;
+
+  font-weight: 400;
+
+  transform:
+    rotate(180deg);
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.features-heading p {
+  max-width: 710px;
+
+  margin:
+    0 auto;
+
+  color: #725d4e;
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 13px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   FEATURE GRID
+========================================================= */
+
+.features-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 15px;
+}
+
+
+/* =========================================================
+   FEATURE CARD
+========================================================= */
+
+.feature-card {
+  position: relative;
+
+  min-height: 255px;
+
+  padding:
+    23px 20px 21px;
+
+  border:
+    1px solid
+    rgba(174, 116, 59, 0.19);
+
+  border-radius: 18px;
+
+  background:
+    rgba(255, 253, 248, 0.78);
+
+  box-shadow:
+    0 8px 25px
+    rgba(83, 44, 23, 0.045);
+
+  overflow: hidden;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.feature-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 100px;
+  height: 100px;
+
+  top: -50px;
+  right: -50px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(194, 139, 73, 0.07);
+
+  transition:
+    transform 0.35s ease;
+}
+
+.feature-card:hover::before {
+  transform:
+    scale(1.5);
+}
+
+.feature-card:hover {
+  border-color:
+    rgba(151, 86, 41, 0.32);
+
+  background:
+    rgba(255, 252, 246, 0.96);
+
+  box-shadow:
+    0 16px 35px
+    rgba(83, 44, 23, 0.085);
+}
+
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+.feature-number {
+  position: absolute;
+
+  top: 17px;
+  right: 19px;
+
+  color:
+    rgba(132, 73, 39, 0.18);
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.feature-icon {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 17px;
+
+  border:
+    1px solid
+    rgba(171, 108, 51, 0.15);
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(244, 224, 195, 0.68),
+      rgba(255, 246, 231, 0.45)
+    );
+
+  font-size: 27px;
+
+  box-shadow:
+    0 5px 14px
+    rgba(89, 46, 23, 0.05);
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.feature-content h3 {
+  margin: 0;
+
+  color: #69301f;
+
+  font-family:
+    "Noto Serif Devanagari",
+    serif;
+
+  font-size: 17px;
+
+  line-height: 1.4;
+
+  font-weight: 700;
+}
+
+.feature-line {
+  width: 28px;
+  height: 1px;
+
+  margin:
+    7px 0 9px;
+
+  background:
+    #bd7c40;
+}
+
+.feature-content p {
+  margin: 0;
+
+  color: #6d594b;
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 10px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   ARROW
+========================================================= */
+
+.feature-arrow {
+  position: absolute;
+
+  right: 17px;
+  bottom: 16px;
+
+  width: 29px;
+  height: 29px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(151, 86, 41, 0.19);
+
+  border-radius: 50%;
+
+  background:
+    rgba(249, 237, 218, 0.7);
+
+  color: #8b3a23;
+
+  font-size: 14px;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.feature-card:hover .feature-arrow {
+  transform:
+    translate(2px, -2px);
+
+  background:
+    rgba(139, 45, 30, 0.08);
+}
+
+
+/* =========================================================
+   BOTTOM HIGHLIGHT
+========================================================= */
+
+.features-highlight {
+  margin-top: 27px;
+
+  min-height: 86px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 17px;
+
+  padding:
+    16px 22px;
+
+  border:
+    1px solid
+    rgba(165, 103, 49, 0.21);
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      100deg,
+      rgba(251, 238, 216, 0.75),
+      rgba(255, 250, 241, 0.82)
+    );
+
+  box-shadow:
+    0 8px 25px
+    rgba(83, 44, 23, 0.04);
+}
+
+.features-highlight-icon {
+  width: 49px;
+  height: 49px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    rgba(153, 76, 37, 0.08);
+
+  font-size: 23px;
+}
+
+.features-highlight-content {
+  flex: 1;
+}
+
+.features-highlight-content strong {
+  display: block;
+
+  color: #6e2e20;
+
+  font-family:
+    "Noto Serif Devanagari",
+    serif;
+
+  font-size: 15px;
+}
+
+.features-highlight-content p {
+  margin:
+    3px 0 0;
+
+  color: #735f50;
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 10px;
+
+  line-height: 1.6;
+}
+
+.features-highlight-count {
+  flex-shrink: 0;
+
+  min-width: 100px;
+
+  text-align: center;
+
+  padding-left: 18px;
+
+  border-left:
+    1px solid
+    rgba(165, 103, 49, 0.18);
+}
+
+.features-highlight-count strong {
+  display: block;
+
+  color: #8b2d1e;
+
+  font-family:
+    "Noto Serif Devanagari",
+    serif;
+
+  font-size: 23px;
+
+  line-height: 1;
+}
+
+.features-highlight-count span {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #806655;
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 8px;
+}
+
+
+/* =========================================================
+   LARGE TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+
+  .ebook-features-container {
+    width:
+      calc(100% - 44px);
+  }
+
+  .features-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .feature-card {
+    min-height: 225px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .ebook-features-section {
+    padding:
+      68px 0
+      70px;
+  }
+
+  .features-grid {
+    gap: 12px;
+  }
+
+  .feature-card {
+    min-height: 215px;
+
+    padding:
+      19px 17px;
+  }
+
+  .feature-icon {
+    width: 51px;
+    height: 51px;
+
+    font-size: 24px;
+
+    border-radius: 14px;
+  }
+
+  .feature-content h3 {
+    font-size: 15px;
+  }
+
+  .feature-content p {
+    font-size: 9px;
+  }
+
+  .features-highlight {
+    gap: 12px;
+
+    padding:
+      14px 16px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 550px) {
+
+  .ebook-features-section {
+    padding:
+      55px 0
+      60px;
+  }
+
+  .ebook-features-container {
+    width:
+      calc(100% - 22px);
+  }
+
+  .features-heading {
+    margin-bottom: 32px;
+  }
+
+  .features-badge {
+    padding:
+      6px 13px;
+
+    font-size: 9px;
+  }
+
+  .features-heading h2 {
+    font-size:
+      clamp(
+        27px,
+        7.5vw,
+        35px
+      );
+  }
+
+  .features-decoration {
+    margin:
+      9px auto 10px;
+  }
+
+  .features-decoration span {
+    width: 35px;
+  }
+
+  .features-heading p {
+    font-size: 10px;
+
+    line-height: 1.7;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+  }
+
+  .feature-card {
+    min-height: 150px;
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 13px;
+
+    padding:
+      15px 15px;
+  }
+
+  .feature-number {
+    top: 13px;
+    right: 14px;
+
+    font-size: 8px;
+  }
+
+  .feature-icon {
+    flex-shrink: 0;
+
+    width: 51px;
+    height: 51px;
+
+    margin-bottom: 0;
+
+    font-size: 23px;
+  }
+
+  .feature-content {
+    padding-right: 27px;
+  }
+
+  .feature-content h3 {
+    font-size: 14px;
+  }
+
+  .feature-line {
+    margin:
+      5px 0 6px;
+
+    width: 23px;
+  }
+
+  .feature-content p {
+    font-size: 9px;
+
+    line-height: 1.55;
+  }
+
+  .feature-arrow {
+    width: 26px;
+    height: 26px;
+
+    right: 10px;
+    bottom: 10px;
+
+    font-size: 12px;
+  }
+
+  .features-highlight {
+    min-height: 72px;
+
+    gap: 9px;
+
+    margin-top: 18px;
+
+    padding:
+      11px 12px;
+
+    border-radius: 14px;
+  }
+
+  .features-highlight-icon {
+    width: 37px;
+    height: 37px;
+
+    font-size: 17px;
+  }
+
+  .features-highlight-content strong {
+    font-size: 11px;
+  }
+
+  .features-highlight-content p {
+    font-size: 8px;
+
+    line-height: 1.5;
+  }
+
+  .features-highlight-count {
+    min-width: 57px;
+
+    padding-left: 9px;
+  }
+
+  .features-highlight-count strong {
+    font-size: 17px;
+  }
+
+  .features-highlight-count span {
+    font-size: 6px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .ebook-features-container {
+    width:
+      calc(100% - 16px);
+  }
+
+  .feature-card {
+    min-height: 140px;
+
+    gap: 10px;
+
+    padding:
+      13px;
+  }
+
+  .feature-icon {
+    width: 45px;
+    height: 45px;
+
+    font-size: 20px;
+  }
+
+  .feature-content h3 {
+    font-size: 12px;
+  }
+
+  .feature-content p {
+    font-size: 8px;
+  }
+
+  .features-highlight-count {
+    display: none;
+  }
+
+  .features-highlight-content strong {
+    font-size: 10px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .feature-card,
+  .feature-icon,
+  .feature-arrow {
+    transition: none;
+  }
+}

@@ -1,0 +1,996 @@
+/* =========================================================
+   QUESTIONS SECTION
+========================================================= */
+
+.ebook-questions-section {
+  position: relative;
+
+  width: 100%;
+
+  padding:
+    82px 0
+    88px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      #fffaf2 0%,
+      #fdf7ed 50%,
+      #fffaf3 100%
+    );
+
+  color: #3a271d;
+}
+
+
+/* =========================================================
+   SOFT BACKGROUND DECORATION
+========================================================= */
+
+.ebook-questions-section::before {
+  content: "";
+
+  position: absolute;
+
+  width: 360px;
+  height: 360px;
+
+  top: -160px;
+  left: -170px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(210, 165, 100, 0.10),
+      transparent 70%
+    );
+
+  pointer-events: none;
+}
+
+.ebook-questions-section::after {
+  content: "";
+
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  right: -210px;
+  bottom: -220px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(139, 89, 45, 0.07),
+      transparent 70%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.ebook-questions-container {
+  position: relative;
+
+  width:
+    min(
+      1280px,
+      calc(100% - 60px)
+    );
+
+  margin: 0 auto;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.questions-heading {
+  text-align: center;
+
+  margin-bottom: 42px;
+}
+
+
+/* =========================================================
+   BADGE
+========================================================= */
+
+.questions-badge {
+  width: fit-content;
+
+  margin: 0 auto 17px;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 9px;
+
+  padding:
+    7px 17px;
+
+  border:
+    1px solid
+    rgba(159, 101, 50, 0.28);
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 250, 241, 0.72);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  color: #7b351f;
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  box-shadow:
+    0 5px 18px
+    rgba(91, 49, 25, 0.04);
+}
+
+.questions-badge-icon {
+  font-size: 15px;
+
+  line-height: 1;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.questions-title {
+  margin: 0;
+
+  color: #38241a;
+
+  font-family:
+    "Noto Serif Devanagari",
+    serif;
+
+  font-size:
+    clamp(
+      35px,
+      4vw,
+      56px
+    );
+
+  line-height: 1.22;
+
+  font-weight: 700;
+
+  letter-spacing: -0.6px;
+}
+
+.questions-title span {
+  color: #8d211a;
+}
+
+
+/* =========================================================
+   TITLE DECORATION
+========================================================= */
+
+.questions-title-decoration {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  margin:
+    13px auto 13px;
+}
+
+.decoration-line {
+  width: 58px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #c68b4b
+    );
+}
+
+.decoration-line:last-child {
+  background:
+    linear-gradient(
+      90deg,
+      #c68b4b,
+      transparent
+    );
+}
+
+.decoration-leaf {
+  color: #bd7a39;
+
+  font-size: 23px;
+
+  line-height: 1;
+
+  transform:
+    rotate(180deg);
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.questions-description {
+  max-width: 850px;
+
+  margin:
+    0 auto;
+
+  color: #665044;
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 15px;
+
+  line-height: 1.8;
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   CARDS GRID
+========================================================= */
+
+.questions-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 17px;
+
+  width: 100%;
+}
+
+
+/* =========================================================
+   QUESTION CARD
+========================================================= */
+
+.question-card {
+  position: relative;
+
+  min-height: 166px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+
+  padding:
+    20px 22px;
+
+  border:
+    1px solid
+    rgba(182, 126, 69, 0.24);
+
+  border-radius: 17px;
+
+  background:
+    rgba(255, 252, 247, 0.80);
+
+  box-shadow:
+    0 8px 25px
+    rgba(84, 45, 22, 0.045);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  overflow: hidden;
+
+  cursor: default;
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.question-card:hover {
+  border-color:
+    rgba(155, 91, 39, 0.34);
+
+  background:
+    rgba(255, 252, 247, 0.94);
+
+  box-shadow:
+    0 15px 35px
+    rgba(84, 45, 22, 0.09);
+}
+
+
+/* =========================================================
+   CARD ICON
+========================================================= */
+
+.question-icon-wrapper {
+  flex-shrink: 0;
+
+  width: 105px;
+  height: 105px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(228, 178, 117, 0.16),
+      rgba(228, 178, 117, 0.04)
+    );
+}
+
+.question-icon {
+  width: 74px;
+  height: 74px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    rgba(250, 234, 211, 0.65);
+
+  font-size: 39px;
+
+  line-height: 1;
+
+  box-shadow:
+    inset 0 0 0 1px
+    rgba(173, 109, 52, 0.08);
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.question-card-content {
+  min-width: 0;
+
+  padding-right: 25px;
+}
+
+.question-card-content h3 {
+  margin: 0;
+
+  color: #71321e;
+
+  font-family:
+    "Noto Serif Devanagari",
+    serif;
+
+  font-size: 20px;
+
+  line-height: 1.35;
+
+  font-weight: 700;
+}
+
+.question-card-line {
+  width: 31px;
+  height: 1px;
+
+  margin:
+    7px 0 8px;
+
+  background:
+    #bd7a39;
+}
+
+.question-card-content p {
+  margin: 0;
+
+  color: #655044;
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 12px;
+
+  line-height: 1.7;
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   CARD ARROW
+========================================================= */
+
+.question-card-arrow {
+  position: absolute;
+
+  right: 19px;
+  bottom: 20px;
+
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(177, 110, 53, 0.25);
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 248, 237, 0.68);
+
+  color: #8d3b20;
+
+  font-size: 19px;
+
+  line-height: 1;
+
+  backdrop-filter: blur(10px);
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.question-card:hover
+.question-card-arrow {
+  background:
+    rgba(147, 46, 31, 0.08);
+
+  border-color:
+    rgba(147, 46, 31, 0.32);
+}
+
+
+/* =========================================================
+   BOTTOM MESSAGE
+========================================================= */
+
+.questions-bottom {
+  margin-top: 40px;
+
+  text-align: center;
+}
+
+.questions-bottom-decoration {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+}
+
+.bottom-line {
+  width: 110px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #c99a67
+    );
+}
+
+.bottom-line:last-child {
+  background:
+    linear-gradient(
+      90deg,
+      #c99a67,
+      transparent
+    );
+}
+
+.bottom-leaf {
+  color: #bc7839;
+
+  font-size: 18px;
+
+  line-height: 1;
+}
+
+
+/* =========================================================
+   BOTTOM PILL
+========================================================= */
+
+.questions-bottom-pill {
+  min-height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  padding:
+    5px 20px;
+
+  border:
+    1px solid
+    rgba(169, 106, 49, 0.25);
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 250, 241, 0.58);
+
+  backdrop-filter: blur(13px);
+  -webkit-backdrop-filter: blur(13px);
+
+  color: #8b331d;
+
+  font-family:
+    "Noto Serif Devanagari",
+    serif;
+
+  font-size: 14px;
+
+  box-shadow:
+    0 6px 20px
+    rgba(86, 47, 22, 0.04);
+}
+
+.questions-bottom-pill span {
+  font-size: 13px;
+}
+
+.questions-bottom p {
+  margin:
+    12px 0 0;
+
+  color: #725c4c;
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   LARGE TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .ebook-questions-section {
+    padding:
+      70px 0
+      75px;
+  }
+
+  .ebook-questions-container {
+    width:
+      calc(100% - 44px);
+  }
+
+  .questions-grid {
+    gap: 14px;
+  }
+
+  .question-card {
+    min-height: 155px;
+
+    padding:
+      17px 18px;
+
+    gap: 13px;
+  }
+
+  .question-icon-wrapper {
+    width: 88px;
+    height: 88px;
+  }
+
+  .question-icon {
+    width: 64px;
+    height: 64px;
+
+    font-size: 33px;
+  }
+
+  .question-card-content h3 {
+    font-size: 17px;
+  }
+
+  .question-card-content p {
+    font-size: 11px;
+  }
+
+  .question-card-arrow {
+    width: 34px;
+    height: 34px;
+
+    right: 14px;
+    bottom: 14px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+
+  .ebook-questions-section {
+    padding:
+      62px 0
+      68px;
+  }
+
+  .ebook-questions-container {
+    width:
+      calc(100% - 32px);
+  }
+
+  .questions-title {
+    font-size:
+      clamp(
+        30px,
+        5vw,
+        43px
+      );
+  }
+
+  .questions-description {
+    font-size: 13px;
+  }
+
+  .questions-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap: 14px;
+  }
+
+  .question-card {
+    min-height: 150px;
+  }
+
+  .question-icon-wrapper {
+    width: 78px;
+    height: 78px;
+  }
+
+  .question-icon {
+    width: 57px;
+    height: 57px;
+
+    font-size: 29px;
+  }
+
+  .question-card-content {
+    padding-right: 17px;
+  }
+
+  .question-card-content h3 {
+    font-size: 16px;
+  }
+
+  .question-card-content p {
+    font-size: 10px;
+
+    line-height: 1.6;
+  }
+
+  .question-card-arrow {
+    width: 31px;
+    height: 31px;
+
+    right: 11px;
+    bottom: 11px;
+
+    font-size: 16px;
+  }
+
+  .bottom-line {
+    width: 70px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .ebook-questions-section {
+    padding:
+      52px 0
+      58px;
+  }
+
+  .ebook-questions-container {
+    width:
+      calc(100% - 22px);
+  }
+
+  .questions-heading {
+    margin-bottom: 30px;
+  }
+
+  .questions-badge {
+    margin-bottom: 13px;
+
+    padding:
+      6px 13px;
+
+    font-size: 10px;
+  }
+
+  .questions-badge-icon {
+    font-size: 13px;
+  }
+
+  .questions-title {
+    font-size:
+      clamp(
+        26px,
+        7.5vw,
+        35px
+      );
+
+    line-height: 1.3;
+
+    letter-spacing: -0.3px;
+  }
+
+  .questions-title-decoration {
+    gap: 8px;
+
+    margin:
+      10px auto;
+  }
+
+  .decoration-line {
+    width: 35px;
+  }
+
+  .decoration-leaf {
+    font-size: 18px;
+  }
+
+  .questions-description {
+    font-size: 11px;
+
+    line-height: 1.7;
+  }
+
+  .desktop-break {
+    display: none;
+  }
+
+
+  /* =============================================
+     MOBILE CARDS
+  ============================================= */
+
+  .questions-grid {
+    grid-template-columns: 1fr;
+
+    gap: 11px;
+  }
+
+  .question-card {
+    min-height: 122px;
+
+    padding:
+      14px 14px;
+
+    gap: 13px;
+
+    border-radius: 14px;
+  }
+
+  .question-icon-wrapper {
+    width: 67px;
+    height: 67px;
+  }
+
+  .question-icon {
+    width: 49px;
+    height: 49px;
+
+    font-size: 25px;
+  }
+
+  .question-card-content {
+    padding-right: 35px;
+  }
+
+  .question-card-content h3 {
+    font-size: 15px;
+  }
+
+  .question-card-line {
+    width: 25px;
+
+    margin:
+      5px 0 5px;
+  }
+
+  .question-card-content p {
+    font-size: 9px;
+
+    line-height: 1.55;
+  }
+
+  .question-card-arrow {
+    width: 29px;
+    height: 29px;
+
+    right: 10px;
+    bottom: 10px;
+
+    font-size: 15px;
+  }
+
+
+  /* =============================================
+     BOTTOM
+  ============================================= */
+
+  .questions-bottom {
+    margin-top: 30px;
+  }
+
+  .questions-bottom-decoration {
+    gap: 5px;
+  }
+
+  .bottom-line {
+    width: 20px;
+  }
+
+  .bottom-leaf {
+    font-size: 13px;
+  }
+
+  .questions-bottom-pill {
+    min-height: 35px;
+
+    gap: 5px;
+
+    padding:
+      4px 11px;
+
+    font-size: 9px;
+  }
+
+  .questions-bottom-pill span {
+    font-size: 9px;
+  }
+
+  .questions-bottom p {
+    margin-top: 9px;
+
+    font-size: 9px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .ebook-questions-section {
+    padding:
+      45px 0
+      50px;
+  }
+
+  .ebook-questions-container {
+    width:
+      calc(100% - 16px);
+  }
+
+  .questions-title {
+    font-size: 24px;
+  }
+
+  .questions-description {
+    font-size: 10px;
+  }
+
+  .question-card {
+    min-height: 112px;
+
+    padding:
+      12px;
+  }
+
+  .question-icon-wrapper {
+    width: 60px;
+    height: 60px;
+  }
+
+  .question-icon {
+    width: 44px;
+    height: 44px;
+
+    font-size: 22px;
+  }
+
+  .question-card-content h3 {
+    font-size: 13px;
+  }
+
+  .question-card-content p {
+    font-size: 8px;
+  }
+
+  .question-card-arrow {
+    width: 26px;
+    height: 26px;
+
+    font-size: 13px;
+  }
+
+  .questions-bottom-pill {
+    font-size: 8px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .question-card,
+  .question-card-arrow {
+    transition: none;
+  }
+}

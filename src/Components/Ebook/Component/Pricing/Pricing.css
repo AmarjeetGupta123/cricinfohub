@@ -1,0 +1,1047 @@
+/* =========================================================
+   PRICING SECTION
+========================================================= */
+
+.ebook-pricing-section {
+  position: relative;
+
+  width: 100%;
+
+  padding: 92px 0 88px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      #f8eee1 0%,
+      #fffaf3 48%,
+      #f9f0e5 100%
+    );
+
+  color: #39261c;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.ebook-pricing-section::before {
+  content: "";
+
+  position: absolute;
+
+  width: 480px;
+  height: 480px;
+
+  top: -250px;
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(190, 136, 71, 0.12),
+      transparent 70%
+    );
+
+  pointer-events: none;
+}
+
+.ebook-pricing-section::after {
+  content: "";
+
+  position: absolute;
+
+  width: 330px;
+  height: 330px;
+
+  right: -180px;
+  bottom: -180px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(139, 45, 30, 0.055),
+      transparent 70%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.ebook-pricing-container {
+  position: relative;
+
+  width:
+    min(
+      1060px,
+      calc(100% - 60px)
+    );
+
+  margin: 0 auto;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.pricing-heading {
+  text-align: center;
+
+  margin-bottom: 48px;
+}
+
+.pricing-badge {
+  width: fit-content;
+
+  margin: 0 auto 15px;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding:
+    7px 17px;
+
+  border:
+    1px solid
+    rgba(154, 94, 44, 0.25);
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 250, 241, 0.72);
+
+  color: #853821;
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.pricing-badge span:first-child {
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   HEADING TITLE
+========================================================= */
+
+.pricing-heading h2 {
+  margin: 0;
+
+  color: #39251b;
+
+  font-family:
+    "Noto Serif Devanagari",
+    serif;
+
+  font-size:
+    clamp(
+      34px,
+      4vw,
+      52px
+    );
+
+  line-height: 1.25;
+
+  font-weight: 700;
+
+  letter-spacing: -0.5px;
+}
+
+.pricing-heading h2 span {
+  display: block;
+
+  color: #8d2d1e;
+}
+
+
+/* =========================================================
+   DECORATION
+========================================================= */
+
+.pricing-decoration {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 11px;
+
+  margin:
+    12px auto 13px;
+}
+
+.pricing-decoration span {
+  width: 58px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #c4945e
+    );
+}
+
+.pricing-decoration span:last-child {
+  background:
+    linear-gradient(
+      90deg,
+      #c4945e,
+      transparent
+    );
+}
+
+.pricing-decoration b {
+  color: #bc783b;
+
+  font-size: 20px;
+
+  font-weight: 400;
+
+  transform:
+    rotate(180deg);
+}
+
+.pricing-heading p {
+  max-width: 690px;
+
+  margin: 0 auto;
+
+  color: #725d4e;
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 13px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   CARD WRAPPER
+========================================================= */
+
+.pricing-card-wrapper {
+  position: relative;
+}
+
+
+/* =========================================================
+   MAIN CARD
+========================================================= */
+
+.pricing-card {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    0.9fr
+    1px
+    1.1fr;
+
+  min-height: 455px;
+
+  border:
+    1px solid
+    rgba(164, 101, 49, 0.24);
+
+  border-radius: 25px;
+
+  background:
+    rgba(255, 252, 246, 0.82);
+
+  box-shadow:
+    0 20px 55px
+    rgba(75, 40, 21, 0.085);
+
+  overflow: hidden;
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+
+/* =========================================================
+   CARD GLOW
+========================================================= */
+
+.pricing-card-glow {
+  position: absolute;
+
+  width: 370px;
+  height: 370px;
+
+  left: -170px;
+  top: -190px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(203, 157, 94, 0.13),
+      transparent 70%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   LEFT
+========================================================= */
+
+.pricing-left {
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding:
+    48px 48px;
+
+  z-index: 2;
+}
+
+.pricing-small-label {
+  margin-bottom: 8px;
+
+  color: #a05e30;
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.pricing-left h3 {
+  margin: 0;
+
+  color: #6e291d;
+
+  font-family:
+    "Noto Serif Devanagari",
+    serif;
+
+  font-size: 36px;
+
+  line-height: 1.25;
+
+  font-weight: 700;
+}
+
+.pricing-subtitle {
+  max-width: 280px;
+
+  margin:
+    8px 0 25px;
+
+  color: #70594b;
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 12px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   PRICE
+========================================================= */
+
+.price-area {
+  margin-bottom: 23px;
+}
+
+.price-old {
+  display: block;
+
+  margin-bottom: 1px;
+
+  color: #a18d7d;
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 12px;
+
+  text-decoration:
+    line-through;
+}
+
+.price-main {
+  display: flex;
+
+  align-items: flex-start;
+
+  color: #84291d;
+}
+
+.price-symbol {
+  margin-top: 8px;
+
+  font-family:
+    "Noto Serif Devanagari",
+    serif;
+
+  font-size: 23px;
+
+  font-weight: 700;
+}
+
+.price-main strong {
+  font-family:
+    "Noto Serif Devanagari",
+    serif;
+
+  font-size: 58px;
+
+  line-height: 1;
+
+  font-weight: 700;
+
+  letter-spacing: -2px;
+}
+
+.price-note {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #8a7464;
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 8px;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.pricing-button {
+  width: fit-content;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 13px;
+
+  padding:
+    11px 12px 11px 20px;
+
+  border: none;
+
+  border-radius: 999px;
+
+  background:
+    #8d2d1e;
+
+  color: #fff;
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 24px
+    rgba(141, 45, 30, 0.20);
+
+  transition:
+    box-shadow 0.25s ease;
+}
+
+.pricing-button:hover {
+  box-shadow:
+    0 14px 30px
+    rgba(141, 45, 30, 0.28);
+}
+
+.pricing-button-arrow {
+  width: 29px;
+  height: 29px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,0.14);
+
+  font-size: 15px;
+}
+
+.pricing-secure {
+  margin-top: 10px;
+
+  color: #887364;
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 8px;
+}
+
+.pricing-secure span {
+  margin-right: 4px;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.pricing-divider {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+
+  padding:
+    55px 0;
+}
+
+.pricing-divider span {
+  width: 1px;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent,
+      rgba(163, 105, 55, 0.25),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   RIGHT
+========================================================= */
+
+.pricing-right {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding:
+    42px 45px;
+}
+
+.included-title {
+  margin-bottom: 21px;
+
+  color: #4d3023;
+
+  font-family:
+    "Noto Serif Devanagari",
+    serif;
+
+  font-size: 19px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   LIST
+========================================================= */
+
+.pricing-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 15px;
+}
+
+.pricing-list-item {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 11px;
+}
+
+.pricing-check {
+  flex-shrink: 0;
+
+  width: 25px;
+  height: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 1px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(139, 45, 30, 0.08);
+
+  color: #8d3020;
+
+  font-size: 11px;
+
+  font-weight: 700;
+}
+
+.pricing-list-item strong {
+  display: block;
+
+  color: #623020;
+
+  font-family:
+    "Noto Serif Devanagari",
+    serif;
+
+  font-size: 12px;
+
+  line-height: 1.4;
+}
+
+.pricing-list-item p {
+  margin:
+    2px 0 0;
+
+  color: #7b6657;
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 9px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   NOTE
+========================================================= */
+
+.pricing-note {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin-top: 22px;
+
+  padding:
+    10px 13px;
+
+  border:
+    1px solid
+    rgba(169, 108, 55, 0.16);
+
+  border-radius: 11px;
+
+  background:
+    rgba(248, 235, 214, 0.42);
+}
+
+.pricing-note > span {
+  color: #bd793c;
+
+  font-size: 12px;
+}
+
+.pricing-note p {
+  margin: 0;
+
+  color: #775e4e;
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 8px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   TRUST ROW
+========================================================= */
+
+.pricing-trust-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 35px;
+
+  margin-top: 19px;
+
+  color: #80695a;
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 8px;
+}
+
+.pricing-trust-row div {
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+}
+
+.pricing-trust-row span {
+  color: #8e3624;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   BOTTOM TEXT
+========================================================= */
+
+.pricing-bottom-text {
+  margin:
+    34px auto 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  color: #81695a;
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 9px;
+
+  text-align: center;
+}
+
+.pricing-bottom-text span {
+  color: #b97a42;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+
+  .ebook-pricing-container {
+    width:
+      calc(100% - 44px);
+  }
+
+  .pricing-card {
+    grid-template-columns: 1fr;
+
+    min-height: auto;
+  }
+
+  .pricing-left {
+    padding:
+      38px 35px;
+  }
+
+  .pricing-divider {
+    height: 1px;
+
+    padding: 0 35px;
+  }
+
+  .pricing-divider span {
+    width: 100%;
+    height: 1px;
+
+    background:
+      linear-gradient(
+        90deg,
+        transparent,
+        rgba(163, 105, 55, 0.25),
+        transparent
+      );
+  }
+
+  .pricing-right {
+    padding:
+      35px;
+  }
+
+  .pricing-left h3 {
+    font-size: 32px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 550px) {
+
+  .ebook-pricing-section {
+    padding:
+      60px 0
+      62px;
+  }
+
+  .ebook-pricing-container {
+    width:
+      calc(100% - 22px);
+  }
+
+  .pricing-heading {
+    margin-bottom: 32px;
+  }
+
+  .pricing-badge {
+    padding:
+      6px 13px;
+
+    font-size: 9px;
+  }
+
+  .pricing-heading h2 {
+    font-size:
+      clamp(
+        27px,
+        7.5vw,
+        35px
+      );
+  }
+
+  .pricing-heading p {
+    font-size: 10px;
+
+    line-height: 1.7;
+  }
+
+  .pricing-card {
+    border-radius: 19px;
+  }
+
+  .pricing-left {
+    padding:
+      30px 22px;
+  }
+
+  .pricing-small-label {
+    font-size: 7px;
+  }
+
+  .pricing-left h3 {
+    font-size: 27px;
+  }
+
+  .pricing-subtitle {
+    font-size: 10px;
+
+    margin-bottom: 19px;
+  }
+
+  .price-old {
+    font-size: 10px;
+  }
+
+  .price-main strong {
+    font-size: 48px;
+  }
+
+  .price-symbol {
+    font-size: 19px;
+
+    margin-top: 6px;
+  }
+
+  .price-note {
+    font-size: 7px;
+  }
+
+  .pricing-button {
+    padding:
+      9px 10px 9px 16px;
+
+    font-size: 9px;
+  }
+
+  .pricing-button-arrow {
+    width: 25px;
+    height: 25px;
+
+    font-size: 13px;
+  }
+
+  .pricing-secure {
+    font-size: 7px;
+  }
+
+  .pricing-right {
+    padding:
+      27px 22px;
+  }
+
+  .included-title {
+    font-size: 16px;
+
+    margin-bottom: 17px;
+  }
+
+  .pricing-list {
+    gap: 12px;
+  }
+
+  .pricing-check {
+    width: 22px;
+    height: 22px;
+
+    font-size: 9px;
+  }
+
+  .pricing-list-item strong {
+    font-size: 10px;
+  }
+
+  .pricing-list-item p {
+    font-size: 8px;
+  }
+
+  .pricing-note {
+    margin-top: 17px;
+
+    padding:
+      8px 10px;
+  }
+
+  .pricing-note p {
+    font-size: 7px;
+  }
+
+  .pricing-trust-row {
+    flex-wrap: wrap;
+
+    gap:
+      8px 17px;
+
+    margin-top: 15px;
+
+    font-size: 7px;
+  }
+
+  .pricing-bottom-text {
+    margin-top: 24px;
+
+    font-size: 8px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .ebook-pricing-container {
+    width:
+      calc(100% - 16px);
+  }
+
+  .pricing-left {
+    padding:
+      27px 17px;
+  }
+
+  .pricing-right {
+    padding:
+      24px 17px;
+  }
+
+  .price-main strong {
+    font-size: 43px;
+  }
+
+  .pricing-trust-row {
+    gap: 7px 12px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .pricing-button {
+    transition: none;
+  }
+}

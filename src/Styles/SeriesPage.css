@@ -1,0 +1,507 @@
+/* =========================================================
+   SERIES MAIN PAGE
+========================================================= */
+
+.series-main-page {
+    width: 100%;
+    max-width: 1180px;
+
+    min-width: 0;
+
+    margin: 0 auto;
+
+    padding: 30px 24px 70px;
+
+    box-sizing: border-box;
+
+    color: #f8fafc;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.series-page-header {
+    width: 100%;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 25px;
+
+    margin-bottom: 25px;
+
+    box-sizing: border-box;
+}
+
+
+.series-page-heading {
+    min-width: 0;
+}
+
+
+.series-page-kicker {
+    display: inline-flex;
+    align-items: center;
+
+    margin-bottom: 9px;
+
+    padding: 5px 9px;
+
+    border: 1px solid rgba(59, 130, 246, 0.22);
+
+    border-radius: 6px;
+
+    background: rgba(37, 99, 235, 0.08);
+
+    color: #60a5fa;
+
+    font-size: 9px;
+    font-weight: 850;
+
+    letter-spacing: 1.6px;
+
+    text-transform: uppercase;
+}
+
+
+.series-page-heading h1 {
+    margin: 0;
+
+    color: #f8fafc;
+
+    font-size: clamp(27px, 3vw, 38px);
+
+    font-weight: 850;
+
+    line-height: 1.15;
+
+    letter-spacing: -1px;
+}
+
+
+.series-page-heading p {
+    margin: 8px 0 0;
+
+    color: #718096;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   SERIES ID
+========================================================= */
+
+.series-id-badge {
+    flex-shrink: 0;
+
+    padding: 8px 12px;
+
+    border: 1px solid #1e2d42;
+
+    border-radius: 8px;
+
+    background: rgba(15, 25, 40, 0.75);
+
+    color: #64748b;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.3px;
+}
+
+
+/* =========================================================
+   TABS WRAPPER
+========================================================= */
+
+.series-tabs-wrapper {
+    width: 100%;
+
+    margin-bottom: 25px;
+
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+
+.series-tabs {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 7px;
+
+    border: 1px solid #1a2738;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(16, 27, 43, 0.96),
+            rgba(9, 16, 28, 0.96)
+        );
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.16);
+
+    overflow-x: auto;
+
+    scrollbar-width: none;
+
+    box-sizing: border-box;
+}
+
+
+.series-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =========================================================
+   TAB BUTTON
+========================================================= */
+
+.series-tab-btn {
+    position: relative;
+
+    flex: 0 0 auto;
+
+    min-height: 42px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 0 17px;
+
+    border: 1px solid transparent;
+
+    border-radius: 9px;
+
+    background: transparent;
+
+    color: #728198;
+
+    font-size: 12px;
+
+    font-weight: 750;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* Icon */
+
+.series-tab-btn i {
+    font-size: 13px;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* Hover */
+
+.series-tab-btn:hover {
+    color: #dbeafe;
+
+    background: rgba(37, 99, 235, 0.07);
+
+    border-color:
+        rgba(59, 130, 246, 0.12);
+}
+
+
+.series-tab-btn:hover i {
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   ACTIVE TAB
+========================================================= */
+
+.series-tab-btn.active {
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #1d4ed8
+        );
+
+    border-color: #3b82f6;
+
+    box-shadow:
+        0 6px 18px rgba(37, 99, 235, 0.22);
+}
+
+
+.series-tab-btn.active i {
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   ACTIVE INDICATOR
+========================================================= */
+
+.series-tab-active-line {
+    position: absolute;
+
+    left: 20%;
+    right: 20%;
+
+    bottom: -8px;
+
+    height: 2px;
+
+    border-radius: 20px;
+
+    background: #7ed957;
+
+    box-shadow:
+        0 0 8px rgba(126, 217, 87, 0.45);
+}
+
+
+/* =========================================================
+   CONTENT AREA
+========================================================= */
+
+.series-content-area {
+    width: 100%;
+
+    min-width: 0;
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+
+.series-tab-content {
+    width: 100%;
+
+    min-width: 0;
+
+    box-sizing: border-box;
+}
+
+
+/* Direct child components */
+
+.series-tab-content > * {
+    width: 100%;
+
+    max-width: 100%;
+
+    min-width: 0;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .series-main-page {
+        padding:
+            24px 18px 60px;
+    }
+
+
+    .series-page-header {
+        align-items: flex-start;
+
+        margin-bottom: 20px;
+    }
+
+
+    .series-page-heading h1 {
+        font-size: 29px;
+    }
+
+
+    .series-page-heading p {
+        font-size: 11px;
+    }
+
+
+    .series-id-badge {
+        font-size: 9px;
+
+        padding: 7px 9px;
+    }
+
+
+    .series-tabs-wrapper {
+        margin-bottom: 20px;
+    }
+
+
+    .series-tabs {
+        padding: 6px;
+
+        gap: 6px;
+
+        border-radius: 12px;
+    }
+
+
+    .series-tab-btn {
+        min-height: 40px;
+
+        padding: 0 14px;
+
+        font-size: 11px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 576px) {
+
+    .series-main-page {
+        padding:
+            20px 12px 50px;
+    }
+
+
+    .series-page-header {
+        display: block;
+
+        margin-bottom: 18px;
+    }
+
+
+    .series-page-kicker {
+        margin-bottom: 8px;
+
+        padding: 5px 8px;
+
+        font-size: 8px;
+    }
+
+
+    .series-page-heading h1 {
+        font-size: 25px;
+
+        letter-spacing: -0.7px;
+    }
+
+
+    .series-page-heading p {
+        max-width: 320px;
+
+        margin-top: 7px;
+
+        font-size: 10px;
+    }
+
+
+    .series-id-badge {
+        display: inline-flex;
+
+        margin-top: 12px;
+
+        padding: 6px 9px;
+    }
+
+
+    /* Tabs horizontal scroll */
+
+    .series-tabs-wrapper {
+        margin-bottom: 17px;
+    }
+
+
+    .series-tabs {
+        width: calc(100% + 0px);
+
+        padding: 5px;
+
+        gap: 5px;
+
+        border-radius: 11px;
+    }
+
+
+    .series-tab-btn {
+        min-height: 38px;
+
+        padding: 0 12px;
+
+        border-radius: 8px;
+
+        font-size: 10px;
+    }
+
+
+    .series-tab-btn i {
+        font-size: 12px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .series-main-page {
+        padding-left: 9px;
+        padding-right: 9px;
+    }
+
+
+    .series-page-heading h1 {
+        font-size: 23px;
+    }
+
+
+    .series-tab-btn {
+        padding: 0 10px;
+
+        gap: 6px;
+
+        font-size: 9px;
+    }
+
+}

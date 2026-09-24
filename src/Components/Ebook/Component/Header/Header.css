@@ -1,0 +1,499 @@
+/* ================================
+   HEADER
+================================ */
+
+.ebook-header {
+ 
+  width: 100%;
+  z-index: 9999;
+
+  background: rgba(255, 252, 246, 0.96);
+
+  border-bottom: 1px solid rgba(104, 55, 32, 0.08);
+
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    backdrop-filter 0.3s ease;
+}
+
+.ebook-header.header-scrolled {
+  background: rgba(255, 250, 242, 0.94);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  box-shadow:
+    0 8px 30px rgba(75, 39, 21, 0.08);
+}
+
+
+/* ================================
+   HEADER CONTAINER
+================================ */
+
+.ebook-header-container {
+  width: min(1400px, calc(100% - 64px));
+
+  height: 82px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+}
+
+
+/* ================================
+   LOGO
+================================ */
+
+.ebook-logo {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  text-decoration: none;
+
+  color: #6c1f19;
+
+  flex-shrink: 0;
+}
+
+.ebook-logo-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #a66a18;
+}
+
+.ebook-logo-icon svg {
+  width: 43px;
+  height: 43px;
+}
+
+.ebook-logo-content {
+  display: flex;
+  flex-direction: column;
+
+  line-height: 1;
+}
+
+.ebook-logo-title {
+  font-family: "Noto Serif Devanagari", serif;
+
+  font-size: 21px;
+  font-weight: 700;
+
+  color: #741e18;
+
+  white-space: nowrap;
+}
+
+.ebook-logo-subtitle {
+  margin-top: 6px;
+
+  font-family: "Noto Serif Devanagari", serif;
+
+  font-size: 10px;
+
+  color: #9b6841;
+
+  letter-spacing: 0.3px;
+
+  text-align: center;
+}
+
+
+/* ================================
+   DESKTOP NAV
+================================ */
+
+.ebook-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 38px;
+
+  margin-left: auto;
+}
+
+.ebook-nav a {
+  position: relative;
+
+  text-decoration: none;
+
+  color: #3d2b22;
+
+  font-family: "Noto Sans Devanagari", sans-serif;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  padding: 8px 0;
+
+  transition:
+    color 0.25s ease;
+}
+
+.ebook-nav a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  width: 0;
+  height: 2px;
+
+  background: #8c211b;
+
+  border-radius: 20px;
+
+  transform: translateX(-50%);
+
+  transition: width 0.25s ease;
+}
+
+.ebook-nav a:hover {
+  color: #8c211b;
+}
+
+.ebook-nav a:hover::after {
+  width: 70%;
+}
+
+
+/* ================================
+   HEADER CTA
+================================ */
+
+.ebook-header-action {
+  flex-shrink: 0;
+}
+
+.header-cta {
+  min-height: 48px;
+
+  padding: 0 24px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  border-radius: 999px;
+
+  text-decoration: none;
+
+  color: #fff;
+
+  background: #8c211b;
+
+  font-family: "Noto Sans Devanagari", sans-serif;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  box-shadow:
+    0 8px 20px rgba(140, 33, 27, 0.18);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.header-cta span {
+  font-size: 20px;
+
+  line-height: 1;
+
+  transition: transform 0.25s ease;
+}
+
+.header-cta:hover {
+  color: #fff;
+
+  background: #741a15;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 26px rgba(140, 33, 27, 0.24);
+}
+
+.header-cta:hover span {
+  transform: translateX(4px);
+}
+
+
+/* ================================
+   MOBILE MENU BUTTON
+================================ */
+
+.mobile-menu-btn {
+  width: 44px;
+  height: 44px;
+
+  display: none;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  padding: 0;
+
+  border: 1px solid rgba(115, 38, 29, 0.12);
+
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.7);
+
+  cursor: pointer;
+}
+
+.mobile-menu-btn span {
+  width: 21px;
+  height: 2px;
+
+  display: block;
+
+  border-radius: 10px;
+
+  background: #6f211b;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.mobile-menu-btn.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.mobile-menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-btn.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* ================================
+   MOBILE MENU
+================================ */
+
+.mobile-menu {
+  display: none;
+
+  max-height: 0;
+
+  overflow: hidden;
+
+  background: rgba(255, 250, 243, 0.98);
+
+  border-top: 1px solid rgba(104, 55, 32, 0.08);
+
+  transition:
+    max-height 0.4s ease;
+}
+
+.mobile-menu-open {
+  max-height: 500px;
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+
+  padding: 14px 22px 24px;
+}
+
+.mobile-nav a {
+  padding: 16px 4px;
+
+  text-decoration: none;
+
+  color: #3d2b22;
+
+  font-family: "Noto Sans Devanagari", sans-serif;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  border-bottom: 1px solid rgba(104, 55, 32, 0.07);
+}
+
+.mobile-nav a:hover {
+  color: #8c211b;
+}
+
+.mobile-nav .mobile-cta {
+  margin-top: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  padding: 14px 20px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  color: #fff;
+
+  background: #8c211b;
+
+  box-shadow:
+    0 8px 20px rgba(140, 33, 27, 0.18);
+}
+
+.mobile-cta span {
+  font-size: 20px;
+}
+
+
+/* ================================
+   TABLET
+================================ */
+
+@media (max-width: 1100px) {
+
+  .ebook-header-container {
+    width: min(100% - 40px, 1400px);
+  }
+
+  .ebook-nav {
+    gap: 22px;
+  }
+
+  .ebook-nav a {
+    font-size: 14px;
+  }
+
+  .header-cta {
+    padding: 0 18px;
+  }
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 850px) {
+
+  .ebook-header-container {
+    height: 72px;
+
+    width: calc(100% - 32px);
+  }
+
+  .ebook-nav,
+  .ebook-header-action {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .ebook-logo-title {
+    font-size: 18px;
+  }
+
+  .ebook-logo-subtitle {
+    font-size: 9px;
+  }
+
+  .ebook-logo-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .ebook-logo-icon svg {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+
+/* ================================
+   SMALL MOBILE
+================================ */
+
+@media (max-width: 480px) {
+
+  .ebook-header-container {
+    width: calc(100% - 22px);
+
+    height: 68px;
+  }
+
+  .ebook-logo {
+    gap: 8px;
+  }
+
+  .ebook-logo-title {
+    font-size: 16px;
+  }
+
+  .ebook-logo-subtitle {
+    font-size: 8px;
+    margin-top: 5px;
+  }
+
+  .ebook-logo-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .ebook-logo-icon svg {
+    width: 33px;
+    height: 33px;
+  }
+
+  .mobile-menu-btn {
+    width: 41px;
+    height: 41px;
+  }
+}
+
+
+/* ================================
+   REDUCED MOTION
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .ebook-header,
+  .ebook-nav a,
+  .header-cta,
+  .header-cta span,
+  .mobile-menu-btn span,
+  .mobile-menu {
+    transition: none;
+  }
+}

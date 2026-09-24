@@ -1,0 +1,663 @@
+/* =========================================================
+   SQUAD PAGE
+========================================================= */
+
+.squad-page {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #e8edf5;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.squad-page .squad-page-header {
+    margin-bottom: 24px;
+}
+
+.squad-page .squad-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.squad-page .squad-title > i {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: rgba(25, 195, 154, 0.12);
+    color: #19c39a;
+
+    font-size: 20px;
+}
+
+.squad-page .squad-title h3 {
+    margin: 0;
+
+    color: #f1f5f9;
+
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.squad-page .squad-title p {
+    margin: 4px 0 0;
+
+    color: #8d98aa;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.squad-page .squad-section {
+    margin-bottom: 30px;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.squad-page .section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 14px;
+}
+
+.squad-page .section-label {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #19c39a;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.squad-page .section-heading h4 {
+    margin: 0;
+
+    color: #f1f5f9;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.squad-page .section-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 6px 11px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    color: #9da8b9;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   TEAM COLUMN
+========================================================= */
+
+.squad-page .team-column {
+    height: 100%;
+
+    padding: 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 14px;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   TEAM HEADER
+========================================================= */
+
+.squad-page .team-header {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding-bottom: 15px;
+
+    margin-bottom: 15px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.squad-page .team-logo {
+    width: 44px;
+    height: 44px;
+
+    flex: 0 0 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    color: #ffffff;
+
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.squad-page .team-logo.team-one {
+    background: #1976d2;
+}
+
+.squad-page .team-logo.team-two {
+    background: #19a974;
+}
+
+.squad-page .team-header h4 {
+    margin: 0;
+
+    color: #f1f5f9;
+
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.squad-page .team-header span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #7f8a9d;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   SECTION TITLE
+========================================================= */
+
+.squad-page .section-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+
+    color: #aeb7c5;
+
+    font-size: 12px;
+    font-weight: 650;
+}
+
+.squad-page .player-count {
+    min-width: 25px;
+    height: 25px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(25, 195, 154, 0.1);
+
+    color: #19c39a;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   PLAYER LIST
+========================================================= */
+
+.squad-page .players-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+/* =========================================================
+   PLAYER CARD
+========================================================= */
+
+.squad-page .squad-player-card {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    min-height: 64px;
+
+    padding: 9px 12px;
+
+    border: 1px solid rgba(255, 255, 255, 0.055);
+    border-radius: 11px;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    box-sizing: border-box;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.squad-page .squad-player-card:hover {
+    background: rgba(255, 255, 255, 0.055);
+
+    border-color: rgba(25, 195, 154, 0.18);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   PLAYER NUMBER
+========================================================= */
+
+.squad-page .player-number {
+    width: 22px;
+
+    flex: 0 0 22px;
+
+    color: #697587;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   PLAYER IMAGE
+========================================================= */
+
+.squad-page .player-image-wrapper {
+    width: 42px;
+    height: 42px;
+
+    flex: 0 0 42px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 50%;
+
+    background: #202938;
+}
+
+.squad-page .player-image {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+.squad-page .player-image-placeholder {
+    width: 100%;
+    height: 100%;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #202938;
+
+    color: #718096;
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   PLAYER INFO
+========================================================= */
+
+.squad-page .player-info {
+    min-width: 0;
+
+    flex: 1;
+}
+
+.squad-page .player-name {
+    overflow: hidden;
+
+    color: #edf2f7;
+
+    font-size: 13px;
+    font-weight: 650;
+
+    line-height: 1.3;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.squad-page .player-role {
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    margin-top: 4px;
+
+    color: #7f8a9d;
+
+    font-size: 10px;
+}
+
+.squad-page .player-role i {
+    color: #19c39a;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   NO PLAYERS
+========================================================= */
+
+.squad-page .no-players {
+    padding: 18px 10px;
+
+    border: 1px dashed rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+
+    color: #737f91;
+
+    font-size: 12px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   NOT ANNOUNCED
+========================================================= */
+
+.squad-page .squad-not-announced {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    padding: 55px 20px;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+
+    background: rgba(255, 255, 255, 0.02);
+
+    text-align: center;
+}
+
+.squad-page .announce-icon {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 15px;
+
+    border-radius: 50%;
+
+    background: rgba(25, 195, 154, 0.1);
+
+    color: #19c39a;
+
+    font-size: 24px;
+}
+
+.squad-page .squad-not-announced h4 {
+    margin: 0 0 7px;
+
+    color: #edf2f7;
+
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.squad-page .squad-not-announced p {
+    max-width: 500px;
+
+    margin: 0;
+
+    color: #7f8a9d;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.squad-page .squad-loading {
+    min-height: 250px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    gap: 12px;
+
+    color: #8490a2;
+
+    font-size: 13px;
+}
+
+.squad-page .squad-loading .spinner-border {
+    width: 30px;
+    height: 30px;
+
+    color: #19c39a;
+}
+
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.squad-page .squad-empty {
+    min-height: 220px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    padding: 30px;
+
+    text-align: center;
+}
+
+.squad-page .squad-empty > i {
+    margin-bottom: 12px;
+
+    color: #e05a6f;
+
+    font-size: 30px;
+}
+
+.squad-page .squad-empty h5 {
+    margin: 0 0 5px;
+
+    color: #edf2f7;
+
+    font-size: 16px;
+}
+
+.squad-page .squad-empty p {
+    margin: 0;
+
+    color: #7f8a9d;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .squad-page {
+        padding: 15px;
+    }
+
+    .squad-page .team-column {
+        padding: 15px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 575px) {
+
+    .squad-page {
+        padding: 12px;
+    }
+
+    .squad-page .squad-title h3 {
+        font-size: 19px;
+    }
+
+    .squad-page .squad-title > i {
+        width: 38px;
+        height: 38px;
+
+        font-size: 17px;
+    }
+
+    .squad-page .section-heading {
+        align-items: flex-start;
+    }
+
+    .squad-page .section-heading h4 {
+        font-size: 16px;
+    }
+
+    .squad-page .team-column {
+        padding: 13px;
+    }
+
+    .squad-page .squad-player-card {
+        min-height: 60px;
+
+        padding: 8px 9px;
+
+        gap: 9px;
+    }
+
+    .squad-page .player-image-wrapper {
+        width: 38px;
+        height: 38px;
+
+        flex-basis: 38px;
+    }
+
+    .squad-page .player-name {
+        font-size: 12px;
+    }
+
+    .squad-page .player-role {
+        font-size: 9px;
+    }
+
+    .squad-page .player-number {
+        width: 18px;
+        flex-basis: 18px;
+
+        font-size: 9px;
+    }
+
+    .squad-page .section-badge {
+        padding: 5px 8px;
+
+        font-size: 10px;
+    }
+
+    .squad-page .squad-not-announced {
+        padding: 40px 15px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .squad-page {
+        padding: 10px;
+    }
+
+    .squad-page .team-header h4 {
+        font-size: 14px;
+    }
+
+    .squad-page .team-header span {
+        font-size: 10px;
+    }
+
+    .squad-page .squad-player-card {
+        padding-left: 7px;
+        padding-right: 7px;
+    }
+
+}

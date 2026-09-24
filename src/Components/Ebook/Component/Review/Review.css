@@ -1,0 +1,1216 @@
+/* =========================================================
+   REVIEWS SECTION
+========================================================= */
+
+.ebook-reviews-section {
+  position: relative;
+
+  width: 100%;
+
+  padding: 90px 0 88px;
+
+  overflow: hidden;
+
+  background:
+    #fffaf2;
+
+  color: #39261c;
+}
+
+
+/* =========================================================
+   BACKGROUND IMAGE
+========================================================= */
+
+.ebook-reviews-section::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 250, 241, 0.78) 0%,
+      rgba(255, 250, 241, 0.89) 34%,
+      rgba(255, 250, 241, 0.94) 60%,
+      rgba(255, 250, 241, 0.83) 100%
+    ),
+    url("../../../../../public/Ebook/reviewbg.png");
+
+  background-size: cover;
+
+  background-position:
+    center center;
+
+  opacity: 0.72;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   SOFT OVERLAY
+========================================================= */
+
+.ebook-reviews-section::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at center,
+      transparent 0%,
+      rgba(255, 250, 242, 0.14) 55%,
+      rgba(255, 250, 242, 0.55) 100%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.ebook-reviews-container {
+  position: relative;
+
+  width:
+    min(
+      1220px,
+      calc(100% - 60px)
+    );
+
+  margin: 0 auto;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.reviews-heading {
+  text-align: center;
+
+  margin-bottom: 42px;
+}
+
+.reviews-badge {
+  width: fit-content;
+
+  margin: 0 auto 15px;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding:
+    7px 17px;
+
+  border:
+    1px solid
+    rgba(153, 91, 42, 0.28);
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 250, 240, 0.78);
+
+  color: #84361f;
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.reviews-badge span:first-child {
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.reviews-heading h2 {
+  margin: 0;
+
+  color: #38251c;
+
+  font-family:
+    "Noto Serif Devanagari",
+    serif;
+
+  font-size:
+    clamp(
+      35px,
+      4.2vw,
+      56px
+    );
+
+  line-height: 1.22;
+
+  font-weight: 700;
+
+  letter-spacing: -0.6px;
+}
+
+.reviews-heading h2 span {
+  display: block;
+
+  color: #8c2d1e;
+}
+
+
+/* =========================================================
+   DECORATION
+========================================================= */
+
+.reviews-decoration {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 11px;
+
+  margin:
+    12px auto 13px;
+}
+
+.reviews-decoration span {
+  width: 58px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #c4935e
+    );
+}
+
+.reviews-decoration span:last-child {
+  background:
+    linear-gradient(
+      90deg,
+      #c4935e,
+      transparent
+    );
+}
+
+.reviews-decoration b {
+  color: #bd7c42;
+
+  font-size: 20px;
+
+  font-weight: 400;
+
+  transform:
+    rotate(180deg);
+}
+
+.reviews-heading p {
+  max-width: 680px;
+
+  margin: 0 auto;
+
+  color: #6e594b;
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 13px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   SLIDER WRAPPER
+========================================================= */
+
+.reviews-slider-wrapper {
+  position: relative;
+
+  width: 100%;
+
+  height: 465px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* =========================================================
+   SLIDER
+========================================================= */
+
+.reviews-slider {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   REVIEW CARD
+========================================================= */
+
+.review-card {
+  position: absolute;
+
+  width: 235px;
+  min-height: 365px;
+
+  padding:
+    27px 22px 20px;
+
+  border:
+    1px solid
+    rgba(174, 113, 57, 0.22);
+
+  border-radius: 17px;
+
+  background:
+    rgba(255, 252, 247, 0.88);
+
+  box-shadow:
+    0 12px 32px
+    rgba(78, 42, 22, 0.07);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  cursor: pointer;
+
+  transform-origin:
+    center center;
+
+  overflow: hidden;
+}
+
+.review-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 110px;
+  height: 110px;
+
+  top: -55px;
+  left: -55px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(224, 178, 116, 0.09);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   ACTIVE CARD
+========================================================= */
+
+.review-card-active {
+  width: 265px;
+
+  min-height: 405px;
+
+  padding:
+    30px 25px 22px;
+
+  border-color:
+    rgba(139, 45, 30, 0.43);
+
+  background:
+    rgba(255, 249, 242, 0.95);
+
+  box-shadow:
+    0 22px 55px
+    rgba(86, 42, 20, 0.16);
+}
+
+
+/* =========================================================
+   QUOTE
+========================================================= */
+
+.review-quote {
+  position: absolute;
+
+  top: 15px;
+  right: 18px;
+
+  color:
+    rgba(205, 113, 79, 0.25);
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 57px;
+
+  line-height: 1;
+}
+
+
+/* =========================================================
+   AVATAR
+========================================================= */
+
+.review-avatar-wrapper {
+  position: relative;
+
+  width: 61px;
+  height: 61px;
+
+  margin:
+    0 auto 10px;
+
+  padding: 3px;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #d59a51,
+      #fff0d0,
+      #a95531
+    );
+}
+
+.review-avatar {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+  border:
+    2px solid
+    #fffaf3;
+}
+
+
+/* =========================================================
+   STARS
+========================================================= */
+
+.review-stars {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 2px;
+
+  margin-bottom: 15px;
+}
+
+.review-stars span {
+  color: #d99a26;
+
+  font-size: 13px;
+
+  line-height: 1;
+}
+
+
+/* =========================================================
+   REVIEW TEXT
+========================================================= */
+
+.review-text {
+  margin: 0;
+
+  color: #594338;
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 11px;
+
+  line-height: 1.85;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   CARD LINE
+========================================================= */
+
+.review-card-line {
+  width: 48px;
+  height: 1px;
+
+  margin:
+    17px auto 12px;
+
+  background:
+    #c9955d;
+}
+
+
+/* =========================================================
+   USER
+========================================================= */
+
+.review-user {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.review-user strong {
+  color: #6c2d20;
+
+  font-family:
+    "Noto Serif Devanagari",
+    serif;
+
+  font-size: 14px;
+
+  line-height: 1.4;
+}
+
+.review-user span {
+  margin-top: 2px;
+
+  color: #8b7566;
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 8px;
+}
+
+
+/* =========================================================
+   FEATURED LABEL
+========================================================= */
+
+.review-featured-label {
+  position: absolute;
+
+  left: 50%;
+  bottom: 13px;
+
+  transform:
+    translateX(-50%);
+
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+
+  width: max-content;
+
+  padding:
+    6px 12px;
+
+  border-radius: 999px;
+
+  background:
+    #8b2c1e;
+
+  color: #fff;
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 8px;
+
+  box-shadow:
+    0 6px 14px
+    rgba(139, 44, 30, 0.18);
+}
+
+.review-featured-label span {
+  color: #f7d89c;
+}
+
+
+/* =========================================================
+   NAV BUTTONS
+========================================================= */
+
+.review-nav {
+  position: absolute;
+
+  top: 50%;
+
+  transform:
+    translateY(-50%);
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(154, 91, 43, 0.23);
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 250, 242, 0.82);
+
+  color: #82351f;
+
+  font-size: 18px;
+
+  cursor: pointer;
+
+  z-index: 10;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 8px 20px
+    rgba(75, 40, 21, 0.08);
+}
+
+.review-nav-left {
+  left: 8px;
+}
+
+.review-nav-right {
+  right: 8px;
+}
+
+
+/* =========================================================
+   DOTS
+========================================================= */
+
+.reviews-dots {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  margin-top: 2px;
+}
+
+.reviews-dot {
+  width: 21px;
+  height: 21px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: none;
+
+  border-radius: 999px;
+
+  background: transparent;
+
+  cursor: pointer;
+}
+
+.reviews-dot span {
+  width: 7px;
+  height: 7px;
+
+  display: block;
+
+  border-radius: 50%;
+
+  background:
+    #d7c7b7;
+
+  transition:
+    width 0.3s ease,
+    background 0.3s ease;
+}
+
+.reviews-dot.active span {
+  width: 22px;
+
+  border-radius: 999px;
+
+  background:
+    #8d2d1e;
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.reviews-stats {
+  width: 100%;
+
+  min-height: 90px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  margin-top: 38px;
+
+  padding:
+    12px 20px;
+
+  border:
+    1px solid
+    rgba(177, 115, 57, 0.24);
+
+  border-radius: 17px;
+
+  background:
+    rgba(255, 250, 241, 0.78);
+
+  box-shadow:
+    0 8px 25px
+    rgba(75, 40, 21, 0.04);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.review-stat {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.review-stat-icon {
+  width: 43px;
+  height: 43px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    rgba(214, 164, 91, 0.14);
+
+  font-size: 19px;
+}
+
+.review-stat strong {
+  display: block;
+
+  color: #8c2d1e;
+
+  font-family:
+    "Noto Serif Devanagari",
+    serif;
+
+  font-size: 20px;
+
+  line-height: 1.1;
+}
+
+.review-stat span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #796355;
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 8px;
+}
+
+.review-stat-divider {
+  width: 1px;
+  height: 38px;
+
+  background:
+    rgba(164, 105, 54, 0.18);
+}
+
+
+/* =========================================================
+   BOTTOM CTA
+========================================================= */
+
+.reviews-bottom {
+  min-height: 105px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin-top: 24px;
+
+  padding:
+    17px 28px;
+
+  border:
+    1px solid
+    rgba(170, 109, 55, 0.22);
+
+  border-radius: 18px;
+
+  background:
+    rgba(255, 251, 243, 0.78);
+
+  box-shadow:
+    0 8px 25px
+    rgba(75, 40, 21, 0.04);
+}
+
+.reviews-bottom-quote {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.reviews-big-quote {
+  color: #bc713d;
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 42px;
+
+  line-height: 1;
+}
+
+.reviews-bottom-quote p {
+  margin: 0;
+
+  color: #5d4639;
+
+  font-family:
+    "Noto Serif Devanagari",
+    serif;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+.reviews-cta {
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 14px;
+
+  padding:
+    11px 12px 11px 21px;
+
+  border: none;
+
+  border-radius: 999px;
+
+  background:
+    #8c2d1e;
+
+  color: #fff;
+
+  font-family:
+    "Noto Sans Devanagari",
+    sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 25px
+    rgba(140, 45, 30, 0.18);
+}
+
+.reviews-cta span:last-child {
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,0.13);
+
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+  .ebook-reviews-container {
+    width:
+      calc(100% - 44px);
+  }
+
+  .reviews-slider-wrapper {
+    height: 430px;
+  }
+
+  .review-card {
+    width: 205px;
+
+    min-height: 340px;
+
+    transform:
+      translateX(0);
+  }
+
+  .review-card-active {
+    width: 240px;
+
+    min-height: 380px;
+  }
+
+  .review-card {
+    margin-left: 0;
+  }
+
+  .review-card-active {
+    margin-left: 0;
+  }
+
+  .reviews-slider .review-card {
+    --review-gap: 220px;
+  }
+
+  .review-nav-left {
+    left: 0;
+  }
+
+  .review-nav-right {
+    right: 0;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+  .ebook-reviews-section {
+    padding:
+      60px 0
+      62px;
+  }
+
+  .ebook-reviews-container {
+    width:
+      calc(100% - 22px);
+  }
+
+  .reviews-heading {
+    margin-bottom: 28px;
+  }
+
+  .reviews-badge {
+    padding:
+      6px 13px;
+
+    font-size: 9px;
+  }
+
+  .reviews-heading h2 {
+    font-size:
+      clamp(
+        28px,
+        7.5vw,
+        36px
+      );
+  }
+
+  .reviews-heading p {
+    font-size: 10px;
+
+    line-height: 1.7;
+  }
+
+
+  /* ===========================
+     MOBILE SLIDER
+  ============================ */
+
+  .reviews-slider-wrapper {
+    height: 425px;
+
+    padding:
+      0 5px;
+  }
+
+  .reviews-slider {
+    overflow: hidden;
+  }
+
+  .review-card {
+    width: 245px;
+
+    min-height: 350px;
+
+    padding:
+      24px 19px 19px;
+  }
+
+  .review-card-active {
+    width: 270px;
+
+    min-height: 390px;
+  }
+
+  /*
+     Mobile card positions are controlled
+     with the same x animation from JSX.
+  */
+
+  .review-nav {
+    width: 34px;
+    height: 34px;
+
+    font-size: 15px;
+  }
+
+  .review-nav-left {
+    left: 0;
+  }
+
+  .review-nav-right {
+    right: 0;
+  }
+
+  .review-avatar-wrapper {
+    width: 56px;
+    height: 56px;
+  }
+
+  .review-stars {
+    margin-bottom: 12px;
+  }
+
+  .review-stars span {
+    font-size: 12px;
+  }
+
+  .review-text {
+    font-size: 10px;
+
+    line-height: 1.75;
+  }
+
+  .review-user strong {
+    font-size: 13px;
+  }
+
+  .review-user span {
+    font-size: 7px;
+  }
+
+  .review-featured-label {
+    font-size: 7px;
+  }
+
+
+  /* ===========================
+     STATS
+  ============================ */
+
+  .reviews-stats {
+    min-height: auto;
+
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap: 17px 10px;
+
+    padding:
+      17px 13px;
+
+    margin-top: 25px;
+  }
+
+  .review-stat {
+    justify-content: center;
+  }
+
+  .review-stat-divider {
+    display: none;
+  }
+
+  .review-stat-icon {
+    width: 36px;
+    height: 36px;
+
+    font-size: 15px;
+  }
+
+  .review-stat strong {
+    font-size: 16px;
+  }
+
+  .review-stat span {
+    font-size: 7px;
+  }
+
+
+  /* ===========================
+     BOTTOM
+  ============================ */
+
+  .reviews-bottom {
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 18px;
+
+    padding:
+      18px 15px;
+
+    text-align: center;
+  }
+
+  .reviews-bottom-quote {
+    justify-content: center;
+  }
+
+  .reviews-bottom-quote p {
+    font-size: 10px;
+  }
+
+  .reviews-big-quote {
+    font-size: 28px;
+  }
+
+  .reviews-cta {
+    padding:
+      9px 10px 9px 17px;
+
+    font-size: 9px;
+  }
+
+  .reviews-cta span:last-child {
+    width: 24px;
+    height: 24px;
+
+    font-size: 12px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .ebook-reviews-container {
+    width:
+      calc(100% - 16px);
+  }
+
+  .reviews-slider-wrapper {
+    height: 405px;
+  }
+
+  .review-card {
+    width: 220px;
+
+    min-height: 330px;
+  }
+
+  .review-card-active {
+    width: 245px;
+
+    min-height: 365px;
+  }
+
+  .review-text {
+    font-size: 9px;
+  }
+
+  .review-featured-label {
+    padding:
+      5px 9px;
+  }
+
+  .review-stat strong {
+    font-size: 14px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .review-card {
+    transition: none;
+  }
+}

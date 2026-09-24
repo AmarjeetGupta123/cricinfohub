@@ -1,0 +1,781 @@
+/* =========================================================
+   WTC POINTS TABLE
+   Shares the token set used by the Records page so the two
+   pages read as one product. Change --accent to re-skin.
+========================================================= */
+
+.points-page {
+  --accent: #7ed957;
+  --accent-soft: rgba(126, 217, 87, 0.12);
+  --accent-line: rgba(126, 217, 87, 0.24);
+
+  --surface-0: #0a0f18;
+  --surface-1: #101823;
+  --surface-2: #151f2c;
+
+  --line: rgba(255, 255, 255, 0.07);
+  --line-strong: rgba(255, 255, 255, 0.12);
+
+  --ink: #eef2f8;
+  --ink-2: #b6c1d1;
+  --ink-3: #7c889b;
+  --ink-4: #5b6675;
+
+  --radius: 14px;
+  --radius-sm: 10px;
+
+  min-height: 100vh;
+  padding: 26px 24px 40px;
+  box-sizing: border-box;
+  color: var(--ink);
+  background: var(--surface-0);
+}
+
+.points-shell {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.points-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 20px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.points-title-block h1 {
+  margin: 0;
+  font-size: clamp(1.75rem, 2.4vw, 2.3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.points-title-block p {
+  max-width: 52ch;
+  margin: 8px 0 0;
+  color: var(--ink-3);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   SEASON PICKER
+========================================================= */
+
+.season-picker {
+  flex: 0 0 auto;
+  width: 280px;
+}
+
+.season-picker > span {
+  display: block;
+  margin: 0 0 6px 2px;
+  color: var(--ink-3);
+  font-size: 0.74rem;
+  font-weight: 500;
+}
+
+.season-select {
+  position: relative;
+  display: block;
+}
+
+.season-select select {
+  width: 100%;
+  height: 44px;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 0 36px 0 13px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  outline: 0;
+  color: var(--ink);
+  background: var(--surface-2);
+  font: inherit;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.season-select select:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.season-select select:focus-visible {
+  border-color: var(--accent-line);
+  box-shadow: 0 0 0 3px rgba(126, 217, 87, 0.14);
+}
+
+.season-select select option {
+  color: var(--ink);
+  background: var(--surface-2);
+}
+
+.season-select i {
+  position: absolute;
+  top: 50%;
+  right: 13px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--ink-3);
+  font-size: 0.8rem;
+}
+
+/* =========================================================
+   SUMMARY BAR
+========================================================= */
+
+.points-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.summary-season {
+  color: var(--ink-2);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.summary-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px;
+  border: 1px solid var(--accent-line);
+  border-radius: 999px;
+  color: var(--accent);
+  background: var(--accent-soft);
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+.summary-count strong {
+  font-weight: 700;
+}
+
+.summary-count.is-loading {
+  color: var(--ink-2);
+  border-color: var(--line-strong);
+  background: var(--surface-1);
+}
+
+.seam-ball {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  border: 1px solid rgba(126, 217, 87, 0.55);
+  border-radius: 50%;
+  background: var(--surface-2);
+  animation: seamSpin 1s linear infinite;
+}
+
+.seam-ball .seam {
+  position: absolute;
+  left: 50%;
+  width: 8px;
+  height: 1px;
+  transform: translateX(-50%) rotate(38deg);
+  background: var(--accent);
+}
+
+.seam-ball .seam:nth-child(1) {
+  top: 4px;
+}
+
+.seam-ball .seam:nth-child(2) {
+  top: 9px;
+}
+
+@keyframes seamSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.points-error {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 13px 16px;
+  border: 1px solid rgba(255, 133, 146, 0.24);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 133, 146, 0.08);
+}
+
+.points-error > i {
+  color: #ff8592;
+  font-size: 1.05rem;
+}
+
+.points-error p {
+  margin: 0;
+  color: #ffd2d7;
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.points-error button {
+  margin-left: auto;
+  flex: 0 0 auto;
+  padding: 8px 14px;
+  border: 1px solid rgba(255, 133, 146, 0.32);
+  border-radius: 999px;
+  color: #ffd2d7;
+  background: transparent;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s ease;
+}
+
+.points-error button:hover {
+  background: rgba(255, 133, 146, 0.14);
+}
+
+/* =========================================================
+   CARD + TABLE
+========================================================= */
+
+.points-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-1);
+}
+
+.points-table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(126, 217, 87, 0.5) transparent;
+}
+
+.points-table-scroll::-webkit-scrollbar {
+  height: 7px;
+}
+
+.points-table-scroll::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgba(126, 217, 87, 0.5);
+}
+
+.points-table {
+  width: 100%;
+  min-width: 800px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-variant-numeric: tabular-nums;
+}
+
+.points-table th {
+  height: 44px;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--line-strong);
+  color: var(--ink-3);
+  background: var(--surface-2);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.points-table th.col-team {
+  text-align: left;
+}
+
+.points-table th.col-pct {
+  color: var(--accent);
+}
+
+.points-table .col-rank {
+  width: 62px;
+}
+
+.points-table .col-team {
+  width: 32%;
+}
+
+.points-table .col-points {
+  width: 82px;
+}
+
+.points-table .col-pct {
+  width: 100px;
+}
+
+.points-table tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.045);
+  transition: background 0.16s ease;
+}
+
+.points-table tbody tr:last-child {
+  border-bottom: 0;
+}
+
+.points-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.028);
+}
+
+.points-table td {
+  height: 62px;
+  padding: 8px 12px;
+  color: var(--ink-2);
+  font-size: 0.88rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.points-table td.col-team {
+  text-align: left;
+}
+
+/* Top two carry a marker because the placing means something. */
+.points-table tbody tr.is-qualifying {
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+/* =========================================================
+   RANK
+========================================================= */
+
+.rank-badge {
+  min-width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  border-radius: 8px;
+  color: var(--ink-3);
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.rank-badge.is-qualifying {
+  color: #0d1a09;
+  background: var(--accent);
+}
+
+/* =========================================================
+   TEAM
+========================================================= */
+
+.team-identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.team-logo {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  background: var(--surface-2);
+}
+
+.team-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.team-logo-initials {
+  color: var(--ink-3);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.team-name-wrap {
+  min-width: 0;
+  display: block;
+}
+
+.team-name-wrap strong {
+  display: block;
+  overflow: hidden;
+  color: var(--ink);
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.team-name-wrap small {
+  display: block;
+  margin-top: 2px;
+  color: var(--ink-4);
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+.team-name-wrap small.is-playing {
+  color: var(--accent);
+}
+
+/* =========================================================
+   VALUES
+========================================================= */
+
+.points-table td.is-won {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.points-table td.col-points {
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.points-table td.col-pct span {
+  display: inline-block;
+  min-width: 68px;
+  padding: 6px 10px;
+  border: 1px solid var(--accent-line);
+  border-radius: 8px;
+  color: var(--accent);
+  background: var(--accent-soft);
+  font-weight: 700;
+}
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.points-empty-row td {
+  height: auto;
+  padding: 0;
+}
+
+.points-empty {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 4px;
+  padding: 56px 24px;
+  text-align: center;
+}
+
+.points-empty i {
+  margin-bottom: 8px;
+  color: var(--accent);
+  font-size: 1.4rem;
+}
+
+.points-empty strong {
+  color: var(--ink);
+  font-size: 0.98rem;
+  font-weight: 600;
+}
+
+.points-empty span {
+  color: var(--ink-3);
+  font-size: 0.85rem;
+}
+
+/* =========================================================
+   NOTE
+========================================================= */
+
+.points-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 18px;
+  border-top: 1px solid var(--line);
+  background: var(--surface-2);
+}
+
+.points-note i {
+  color: var(--ink-3);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.points-note p {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   SKELETON
+========================================================= */
+
+.skeleton-row td {
+  height: 62px;
+}
+
+.sk {
+  display: inline-block;
+  border-radius: 6px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.05) 25%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 75%
+  );
+  background-size: 220% 100%;
+  animation: tableShimmer 1.35s infinite;
+}
+
+.sk-rank {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+}
+
+.sk-team {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sk-logo {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+}
+
+.sk-name {
+  width: 120px;
+  height: 12px;
+}
+
+.sk-number {
+  width: 26px;
+  height: 11px;
+}
+
+.sk-pct {
+  width: 62px;
+  height: 30px;
+  border-radius: 8px;
+}
+
+@keyframes tableShimmer {
+  0% {
+    background-position: 120% 0;
+  }
+  100% {
+    background-position: -120% 0;
+  }
+}
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+.points-page :focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .points-page {
+    padding: 20px 16px 32px;
+  }
+
+  .points-header {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .season-picker {
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   MOBILE — rows become cards, no sideways scrolling
+========================================================= */
+
+@media (max-width: 760px) {
+  .points-table,
+  .points-table thead,
+  .points-table tbody,
+  .points-table tr,
+  .points-table td {
+    display: block;
+    width: auto;
+  }
+
+  .points-table {
+    min-width: 0;
+    table-layout: auto;
+  }
+
+  .points-table thead {
+    display: none;
+  }
+
+  .points-table tbody tr {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    padding: 14px;
+  }
+
+  .points-table td {
+    height: auto;
+    padding: 0;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .points-table td.col-rank {
+    width: auto;
+    flex: 0 0 auto;
+  }
+
+  .points-table td.col-team {
+    width: auto;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  /* Stat cells turn into labelled chips. */
+  .points-table td:not(.col-rank):not(.col-team) {
+    flex: 0 0 auto;
+    min-width: 58px;
+    padding: 7px 10px;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    background: var(--surface-2);
+    font-size: 0.85rem;
+  }
+
+  .points-table td:not(.col-rank):not(.col-team)::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 2px;
+    color: var(--ink-4);
+    font-size: 0.66rem;
+    font-weight: 500;
+  }
+
+  .points-table td.col-pct {
+    border-color: var(--accent-line);
+    background: var(--accent-soft);
+  }
+
+  .points-table td.col-pct::before {
+    color: rgba(126, 217, 87, 0.8);
+  }
+
+  .points-table td.col-pct span {
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: none;
+  }
+
+  .points-empty-row td {
+    padding: 0;
+    border: 0;
+    background: none;
+  }
+
+  .skeleton-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    padding: 14px;
+  }
+
+  .skeleton-row td {
+    height: auto;
+    padding: 0;
+  }
+
+  .skeleton-row td:not(.col-rank):not(.col-team) {
+    flex: 0 0 58px;
+  }
+
+  .skeleton-row .sk-number {
+    width: 100%;
+    height: 30px;
+    border-radius: 9px;
+  }
+
+  .skeleton-row .sk-pct {
+    width: 58px;
+  }
+}
+
+@media (max-width: 480px) {
+  .points-page {
+    padding: 16px 12px 28px;
+  }
+
+  .team-logo {
+    width: 34px;
+    height: 34px;
+    flex-basis: 34px;
+  }
+
+  .team-name-wrap strong {
+    font-size: 0.88rem;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .points-page *,
+  .points-page *::before,
+  .points-page *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

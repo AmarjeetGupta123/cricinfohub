@@ -1,0 +1,1050 @@
+/* =========================================================
+   RECORDS PAGE
+   Dark stats board. Tokens are scoped to the page so this
+   file can drop into an app with its own theme layer.
+========================================================= */
+
+.records-page {
+  --pitch: #7ed957;
+  --pitch-soft: rgba(126, 217, 87, 0.12);
+  --pitch-line: rgba(126, 217, 87, 0.22);
+
+  --surface-0: #0a0f18;
+  --surface-1: #101823;
+  --surface-2: #151f2c;
+  --surface-3: #1b2735;
+
+  --line: rgba(255, 255, 255, 0.07);
+  --line-strong: rgba(255, 255, 255, 0.12);
+
+  --ink: #eef2f8;
+  --ink-2: #b6c1d1;
+  --ink-3: #7c889b;
+  --ink-4: #5b6675;
+
+  --radius: 14px;
+  --radius-sm: 10px;
+
+  min-height: 100%;
+  padding: 26px 24px 40px;
+  color: var(--ink);
+  background: var(--surface-0);
+  font-feature-settings: "tnum" 1;
+}
+
+.records-shell {
+  width: 100%;
+  max-width: 1480px;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.records-page-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.records-title-block h1 {
+  margin: 0;
+  font-size: clamp(1.75rem, 2.4vw, 2.3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.records-title-block p {
+  max-width: 46ch;
+  margin: 8px 0 0;
+  color: var(--ink-3);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.records-header-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.header-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink-2);
+  background: var(--surface-1);
+  font-size: 0.78rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.header-chip i {
+  color: var(--pitch);
+  font-size: 0.82rem;
+}
+
+/* =========================================================
+   LAYOUT
+========================================================= */
+
+.records-layout {
+  display: grid;
+  grid-template-columns: 232px minmax(0, 1fr);
+  gap: 22px;
+  align-items: start;
+}
+
+/* =========================================================
+   RECORD NAVIGATION
+========================================================= */
+
+.records-menu-toggle {
+  display: none;
+}
+
+.records-menu-body {
+  display: grid;
+  gap: 16px;
+}
+
+.record-group-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 8px;
+  padding: 0 4px;
+  color: var(--ink-3);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.record-group-title i {
+  font-size: 0.85rem;
+}
+
+.record-group-title.is-active {
+  color: var(--pitch);
+}
+
+.record-group-title small {
+  margin-left: auto;
+  padding: 2px 7px;
+  border-radius: 6px;
+  color: var(--ink-4);
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+.record-menu-items {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface-1);
+}
+
+.record-menu-item {
+  position: relative;
+  width: 100%;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 0 11px 0 14px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink-2);
+  background: transparent;
+  text-align: left;
+  font: inherit;
+  font-size: 0.83rem;
+  cursor: pointer;
+  transition: color 0.18s ease, background 0.18s ease;
+}
+
+.record-menu-item:last-child {
+  border-bottom: 0;
+}
+
+.record-menu-item span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.record-menu-item i {
+  flex: 0 0 auto;
+  color: transparent;
+  font-size: 1rem;
+  transition: color 0.18s ease;
+}
+
+.record-menu-item:hover {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.record-menu-item:hover i {
+  color: var(--ink-4);
+}
+
+.record-menu-item.is-active {
+  color: var(--ink);
+  background: var(--pitch-soft);
+  font-weight: 600;
+}
+
+.record-menu-item.is-active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--pitch);
+}
+
+.record-menu-item.is-active i {
+  color: var(--pitch);
+}
+
+/* =========================================================
+   FILTERS
+========================================================= */
+
+.records-content {
+  min-width: 0;
+}
+
+.records-filter-card {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-1);
+}
+
+.records-filters {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) minmax(0, 1.4fr);
+  gap: 12px;
+}
+
+.record-filter {
+  display: block;
+  min-width: 0;
+}
+
+.record-filter-label {
+  display: block;
+  margin: 0 0 6px 2px;
+  color: var(--ink-3);
+  font-size: 0.74rem;
+  font-weight: 500;
+}
+
+.record-select-wrap,
+.record-search-wrap {
+  position: relative;
+  display: block;
+}
+
+.record-select-wrap select,
+.record-search-wrap input {
+  width: 100%;
+  height: 42px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  outline: 0;
+  color: var(--ink);
+  background: var(--surface-2);
+  font: inherit;
+  font-size: 0.85rem;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.record-select-wrap select {
+  appearance: none;
+  padding: 0 34px 0 12px;
+  cursor: pointer;
+}
+
+.record-select-wrap select:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.record-select-wrap select:focus-visible,
+.record-search-wrap input:focus-visible {
+  border-color: var(--pitch-line);
+  box-shadow: 0 0 0 3px rgba(126, 217, 87, 0.14);
+}
+
+.record-select-wrap select option {
+  color: var(--ink);
+  background: var(--surface-2);
+}
+
+.record-select-wrap > i {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--ink-3);
+  font-size: 0.8rem;
+}
+
+.record-search-wrap input {
+  padding: 0 12px 0 34px;
+}
+
+.record-search-wrap input::placeholder {
+  color: var(--ink-4);
+}
+
+.record-search-wrap > i {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--ink-3);
+  font-size: 0.82rem;
+}
+
+.record-reset {
+  margin-top: 12px;
+  padding: 7px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--ink-2);
+  background: transparent;
+  font: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: color 0.18s ease, border-color 0.18s ease;
+}
+
+.record-reset:hover {
+  color: var(--ink);
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+/* =========================================================
+   ACTIVE RECORD BAR
+========================================================= */
+
+.active-record-bar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 22px 0 12px;
+}
+
+.active-record-title h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.active-record-title p {
+  margin: 5px 0 0;
+  color: var(--ink-3);
+  font-size: 0.8rem;
+}
+
+.active-record-count {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+
+.count-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid var(--pitch-line);
+  border-radius: 999px;
+  color: var(--pitch);
+  background: var(--pitch-soft);
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+.count-pill strong {
+  font-weight: 700;
+}
+
+.count-pill.is-loading {
+  color: var(--ink-2);
+  border-color: var(--line-strong);
+  background: var(--surface-1);
+}
+
+.sort-reset {
+  padding: 0;
+  border: 0;
+  color: var(--ink-3);
+  background: transparent;
+  font: inherit;
+  font-size: 0.78rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.sort-reset:hover {
+  color: var(--ink);
+}
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.records-table-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-1);
+}
+
+.records-table-scroll {
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(126, 217, 87, 0.5) transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+.records-table-scroll::-webkit-scrollbar {
+  height: 7px;
+}
+
+.records-table-scroll::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgba(126, 217, 87, 0.5);
+}
+
+.records-table {
+  min-width: 660px;
+  display: block;
+}
+
+.records-table-head,
+.records-table-row,
+.records-skeleton-row {
+  display: grid;
+  grid-template-columns: var(--record-columns);
+  align-items: center;
+  padding: 0 16px;
+}
+
+.records-table-head {
+  min-height: 44px;
+  border-bottom: 1px solid var(--line-strong);
+  background: var(--surface-2);
+}
+
+.rank-head {
+  color: var(--ink-4);
+  font-size: 0.74rem;
+  text-align: center;
+}
+
+.records-head-cell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 6px 4px;
+  border: 0;
+  border-radius: 7px;
+  color: var(--ink-3);
+  background: transparent;
+  font: inherit;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.18s ease, background 0.18s ease;
+}
+
+.records-head-cell i {
+  opacity: 0;
+  font-size: 0.65rem;
+  transition: opacity 0.18s ease;
+}
+
+.records-head-cell:hover {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.records-head-cell:hover i {
+  opacity: 0.5;
+}
+
+.records-head-cell.player-head {
+  justify-content: flex-start;
+  color: var(--ink-2);
+}
+
+.records-head-cell.is-highlighted {
+  color: var(--pitch);
+}
+
+.records-head-cell.is-sorted {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.records-head-cell.is-sorted i {
+  opacity: 1;
+  color: var(--pitch);
+}
+
+.records-table-row {
+  min-height: 58px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.045);
+  transition: background 0.16s ease;
+}
+
+.records-table-row:last-child {
+  border-bottom: 0;
+}
+
+.records-table-row:hover {
+  background: rgba(255, 255, 255, 0.028);
+}
+
+.record-rank-cell {
+  display: flex;
+  justify-content: center;
+}
+
+.rank-badge {
+  min-width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  border-radius: 8px;
+  color: var(--ink-3);
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.rank-badge.is-podium {
+  color: #0d1a09;
+  background: var(--pitch);
+}
+
+.record-player-cell {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  padding-right: 14px;
+}
+
+.record-player-name {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--ink);
+  font-size: 0.92rem;
+  font-weight: 550;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.record-value-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  color: var(--ink-2);
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.record-value-cell.is-primary span {
+  min-width: 52px;
+  padding: 6px 10px;
+  border: 1px solid var(--pitch-line);
+  border-radius: 8px;
+  color: var(--pitch);
+  background: var(--pitch-soft);
+  font-weight: 700;
+  text-align: center;
+}
+
+/* =========================================================
+   STATES
+========================================================= */
+
+.records-state {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 44px 24px;
+  text-align: center;
+}
+
+.state-icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 14px;
+  border: 1px solid var(--pitch-line);
+  border-radius: 12px;
+  color: var(--pitch);
+  background: var(--pitch-soft);
+  font-size: 1.05rem;
+}
+
+.state-icon.is-error {
+  color: #ff8592;
+  border-color: rgba(255, 133, 146, 0.24);
+  background: rgba(255, 133, 146, 0.1);
+}
+
+.records-state h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.records-state p {
+  max-width: 44ch;
+  margin: 8px 0 18px;
+  color: var(--ink-3);
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+.records-state button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 16px;
+  border: 1px solid var(--pitch-line);
+  border-radius: 999px;
+  color: var(--pitch);
+  background: var(--pitch-soft);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s ease;
+}
+
+.records-state button:hover {
+  background: rgba(126, 217, 87, 0.2);
+}
+
+/* =========================================================
+   SKELETON
+========================================================= */
+
+.records-skeleton-row {
+  min-height: 58px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.045);
+}
+
+.records-skeleton-row > span {
+  position: relative;
+  overflow: hidden;
+  height: 11px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.records-skeleton-row > span::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
+  animation: recordShimmer 1.3s infinite;
+}
+
+.records-skeleton-row .skeleton-rank {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  justify-self: center;
+}
+
+.records-skeleton-row .skeleton-player {
+  width: 68%;
+  height: 13px;
+}
+
+.records-skeleton-row .skeleton-cell {
+  width: 48%;
+  justify-self: center;
+}
+
+@keyframes recordShimmer {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+/* =========================================================
+   SEAM BALL — used inline while refreshing
+========================================================= */
+
+.seam-ball {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  border: 1px solid rgba(126, 217, 87, 0.55);
+  border-radius: 50%;
+  background: var(--surface-3);
+  animation: seamSpin 1s linear infinite;
+}
+
+.seam-ball .seam {
+  position: absolute;
+  left: 50%;
+  width: 8px;
+  height: 1px;
+  transform: translateX(-50%) rotate(38deg);
+  background: var(--pitch);
+}
+
+.seam-ball .seam:nth-child(1) {
+  top: 4px;
+}
+
+.seam-ball .seam:nth-child(2) {
+  top: 9px;
+}
+
+@keyframes seamSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.records-footer {
+  margin: 14px 0 0;
+  color: var(--ink-4);
+  font-size: 0.76rem;
+}
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+.records-page :focus-visible {
+  outline: 2px solid var(--pitch);
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1080px) {
+  .records-layout {
+    grid-template-columns: 200px minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .records-filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .record-search {
+    grid-column: span 2;
+  }
+}
+
+/* =========================================================
+   COLLAPSIBLE MENU + CARD ROWS
+========================================================= */
+/* =========================================================
+   SMALL SCREEN TABLE
+   Keep the original table structure.
+   Only make it compact + horizontally scrollable.
+========================================================= */
+/* =========================================================
+   SMALL SCREENS — same table, scrolls sideways,
+   rank + player stay pinned on the left
+========================================================= */
+
+@media (max-width: 860px) {
+  .records-page {
+    padding: 20px 16px 32px;
+  }
+
+  .records-page-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .records-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .records-menu-toggle {
+    width: 100%;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 0 14px;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-sm);
+    color: var(--ink);
+    background: var(--surface-1);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .records-menu-toggle span {
+    display: grid;
+    gap: 2px;
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+
+  .records-menu-toggle small {
+    color: var(--pitch);
+    font-size: 0.7rem;
+    font-weight: 500;
+  }
+
+  .records-menu-body {
+    display: none;
+    margin-top: 12px;
+  }
+
+  .records-menu-body.is-open {
+    display: grid;
+  }
+
+  .active-record-bar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* ---------- table ---------- */
+
+  .records-table {
+    --col-rank: 42px;
+    --col-player: 152px;
+    --col-stat: 70px;
+
+    min-width: calc(
+      var(--col-rank) + var(--col-player) +
+        (var(--stat-columns, 4) * var(--col-stat)) + 12px
+    );
+  }
+
+  .records-table-head,
+  .records-table-row,
+  .records-skeleton-row {
+    grid-template-columns:
+      var(--col-rank)
+      var(--col-player)
+      repeat(var(--stat-columns, 4), minmax(var(--col-stat), 1fr));
+    padding: 0 12px 0 0;
+  }
+
+  .records-table-row,
+  .records-skeleton-row {
+    min-height: 54px;
+  }
+
+  /* pinned columns */
+  .rank-head,
+  .record-rank-cell,
+  .records-head-cell.player-head,
+  .record-player-cell {
+    position: sticky;
+    z-index: 2;
+    align-self: stretch;
+    align-items: center;
+  }
+
+  .rank-head,
+  .record-rank-cell {
+    left: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .records-head-cell.player-head,
+  .record-player-cell {
+    left: var(--col-rank);
+    border-right: 1px solid var(--line);
+    box-shadow: 8px 0 10px -8px rgba(0, 0, 0, 0.6);
+  }
+
+  .rank-head,
+  .records-head-cell.player-head {
+    background: var(--surface-2);
+  }
+
+  .record-rank-cell,
+  .record-player-cell {
+    background: var(--surface-1);
+  }
+
+  .records-table-row:hover .record-rank-cell,
+  .records-table-row:hover .record-player-cell {
+    background: #151e2a;
+  }
+
+  .records-head-cell.player-head {
+    padding: 0 10px 0 4px;
+    border-radius: 0;
+  }
+
+  .record-player-cell {
+    padding: 0 10px 0 4px;
+  }
+
+  /* ranked-by stat sits right after the player, so it is
+     visible without scrolling. Delete these 3 rules to keep
+     the API's original column order. */
+  .rank-head,
+  .record-rank-cell {
+    order: -3;
+  }
+
+  .records-head-cell.player-head,
+  .record-player-cell {
+    order: -2;
+  }
+
+  .records-head-cell.is-highlighted,
+  .record-value-cell.is-primary {
+    order: -1;
+  }
+
+  /* readable sizes */
+  .records-head-cell {
+    padding: 6px 2px;
+    font-size: 0.72rem;
+  }
+
+  .record-player-name {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    font-size: 0.80rem;
+    line-height: 1.25;
+    /* white-space: normal; */
+  }
+
+  .record-value-cell {
+    font-size: 0.84rem;
+  }
+
+  .record-value-cell.is-primary span {
+    min-width: 48px;
+    padding: 5px 8px;
+  }
+
+  .records-skeleton-row .skeleton-player {
+    margin-left: 4px;
+  }
+}
+
+/* touch devices have no hover, so keep the sort arrow faintly visible */
+@media (hover: none) {
+  .records-head-cell i {
+    opacity: 0.35;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 560px) {
+  .records-page {
+    padding: 8px;
+  }
+
+  .records-filters {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .record-search {
+    grid-column: span 2;
+  }
+
+  .records-title-block p {
+    font-size: 0.82rem;
+  }
+
+  .records-table {
+    --col-rank: 38px;
+    --col-player: 128px;
+    --col-stat: 64px;
+  }
+
+  .rank-badge {
+    min-width: 24px;
+    height: 24px;
+    font-size: 0.74rem;
+  }
+
+  .record-player-name {
+    font-size: 0.8rem;
+  }
+
+  .record-value-cell {
+    font-size: 0.8rem;
+  }
+
+  .record-value-cell.is-primary span {
+    min-width: 44px;
+    padding: 4px 7px;
+  }
+}
