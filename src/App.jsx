@@ -5,7 +5,7 @@ import Header from "./Components/Header";
 import Sidebar from "./Components/Sidebar";
 
 import Dashboard from "./Components/Dashboard";
-import MatchCenter from "./Components/matchCenter";
+import MatchCenter from "./Components/MatchCenter";
 import SeriesPage from "./Components/SeriesPage";
 import UpcomingMatches from "./Components/UpcomingMatches/UpcomingMatches";
 import WTCPointsTable from "./Components/WTC/WTCPointsTable";
