@@ -3,3 +3,11 @@
   to = "https://www.cricbuzz.com/api/:splat"
   status = 200
   force = true
+
+
+
+  [[redirects]]
+  from = "/backend-api/*"
+  to = "https://cricinfohub-api.onrender.com/api/:splat"
+  status = 200
+  force = true

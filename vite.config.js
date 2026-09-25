@@ -11,6 +11,13 @@ export default defineConfig({
         changeOrigin: true,
         secure: true,
       },
+
+      "/backend-api": {
+        target: "https://cricinfohub-api.onrender.com",
+        changeOrigin: true,
+        secure: true,
+        rewrite: (path) => path.replace(/^\/backend-api/, "/api"),
+      },
     },
   },
 });
