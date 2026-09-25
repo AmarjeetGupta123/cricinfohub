@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import "./FAQ.css";
+import "./Faq.css";
 
 const faqData = [
   {
