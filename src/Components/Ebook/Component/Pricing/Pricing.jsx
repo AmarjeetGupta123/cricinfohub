@@ -3,6 +3,304 @@ import { motion } from "framer-motion";
 import "./Pricing.css";
 
 const Pricing = () => {
+  const handleBuyNow = async () => {
+    try {
+      // ---------------------------------------------------------
+      // STEP 1: Create Razorpay Order
+      // ---------------------------------------------------------
+
+      Swal.fire({
+        title: "Please wait...",
+        text: "Order create ho raha hai",
+        allowOutsideClick: false,
+        didOpen: () => {
+          Swal.showLoading();
+        },
+      });
+
+      // LOCAL + LIVE
+      // Netlify -> /backend-api -> Render .NET API
+      const orderResponse = await fetch(
+        "/backend-api/Payment/create-order",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      const orderData = await orderResponse.json();
+
+      if (!orderResponse.ok || !orderData.success) {
+        Swal.fire({
+          icon: "error",
+          title: "Order create nahi hua",
+          text:
+            orderData.message ||
+            "Please thodi der baad try karein.",
+          confirmButtonText: "OK",
+        });
+
+        return;
+      }
+
+      Swal.close();
+
+      // ---------------------------------------------------------
+      // STEP 2: Razorpay Checkout
+      // ---------------------------------------------------------
+
+      if (!window.Razorpay) {
+        Swal.fire({
+          icon: "error",
+          title: "Payment system unavailable",
+          text:
+            "Razorpay Checkout load nahi hua. Page refresh karke try karein.",
+          confirmButtonText: "OK",
+        });
+
+        return;
+      }
+
+      const options = {
+        key: orderData.keyId,
+
+        amount: orderData.amount,
+
+        currency: orderData.currency,
+
+        name: "भक्ति और जीवन",
+
+        description:
+          "भक्ति और जीवन - Digital eBook",
+
+        order_id: orderData.orderId,
+
+        // -------------------------------------------------------
+        // PAYMENT SUCCESS
+        // -------------------------------------------------------
+
+        handler: async function (paymentResponse) {
+          try {
+            Swal.fire({
+              title: "Payment verify ho raha hai...",
+              text: "Please wait",
+              allowOutsideClick: false,
+              didOpen: () => {
+                Swal.showLoading();
+              },
+            });
+
+            // ---------------------------------------------------
+            // STEP 3: Verify Payment
+            // ---------------------------------------------------
+
+            const verifyResponse = await fetch(
+              "/backend-api/Payment/verify-payment",
+              {
+                method: "POST",
+
+                headers: {
+                  "Content-Type": "application/json",
+                },
+
+                body: JSON.stringify({
+                  razorpay_order_id:
+                    paymentResponse.razorpay_order_id,
+
+                  razorpay_payment_id:
+                    paymentResponse.razorpay_payment_id,
+
+                  razorpay_signature:
+                    paymentResponse.razorpay_signature,
+                }),
+              }
+            );
+
+            const verifyData =
+              await verifyResponse.json();
+
+            // ---------------------------------------------------
+            // PAYMENT VERIFIED
+            // ---------------------------------------------------
+
+            if (
+              verifyResponse.ok &&
+              verifyData.success
+            ) {
+              Swal.fire({
+                icon: "success",
+
+                title: "Payment Successful! 🎉",
+
+                html: `
+                  <div style="font-size:15px;">
+                    आपका payment successfully verify हो गया है।
+                    <br />
+                    <strong>अब आपकी eBook तैयार है 📖</strong>
+                  </div>
+                `,
+
+                confirmButtonText:
+                  "Download eBook 📥",
+
+                confirmButtonColor:
+                  "#198754",
+
+                allowOutsideClick: false,
+              }).then((result) => {
+                if (result.isConfirmed) {
+
+                  // ------------------------------------------------
+                  // LIVE + LOCAL
+                  // Netlify -> Render
+                  // ------------------------------------------------
+
+                  const downloadUrl =
+                    `/backend-api/Ebook/download?token=${encodeURIComponent(
+                      verifyData.downloadToken
+                    )}`;
+
+                  window.location.href =
+                    downloadUrl;
+                }
+              });
+
+              return;
+            }
+
+            // ---------------------------------------------------
+            // VERIFICATION FAILED
+            // ---------------------------------------------------
+
+            Swal.fire({
+              icon: "error",
+
+              title:
+                "Payment Verification Failed",
+
+              text:
+                verifyData.message ||
+                "Payment verify nahi ho paya.",
+
+              confirmButtonText: "OK",
+            });
+
+          } catch (error) {
+
+            console.error(
+              "Payment verification error:",
+              error
+            );
+
+            Swal.fire({
+              icon: "error",
+
+              title:
+                "Something went wrong",
+
+              text:
+                "Payment ho gaya ho sakta hai, lekin verification complete nahi ho paya. Please support se contact karein.",
+
+              confirmButtonText: "OK",
+            });
+          }
+        },
+
+        // -------------------------------------------------------
+        // PREFILL
+        // -------------------------------------------------------
+
+        prefill: {
+          name: "",
+          email: "",
+          contact: "",
+        },
+
+        // -------------------------------------------------------
+        // NOTES
+        // -------------------------------------------------------
+
+        notes: {
+          product:
+            "Bhakti Aur Jeevan eBook",
+        },
+
+        // -------------------------------------------------------
+        // THEME
+        // -------------------------------------------------------
+
+        theme: {
+          color: "#9b2f1f",
+        },
+      };
+
+      // ---------------------------------------------------------
+      // CREATE RAZORPAY INSTANCE
+      // ---------------------------------------------------------
+
+      const razorpay =
+        new window.Razorpay(options);
+
+      // ---------------------------------------------------------
+      // PAYMENT FAILED
+      // ---------------------------------------------------------
+
+      razorpay.on(
+        "payment.failed",
+        function (response) {
+
+          console.error(
+            "Razorpay payment failed:",
+            response.error
+          );
+
+          Swal.fire({
+            icon: "error",
+
+            title:
+              "Payment Failed ❌",
+
+            text:
+              response.error?.description ||
+              "Payment complete nahi ho paya.",
+
+            confirmButtonText:
+              "Try Again",
+          });
+        }
+      );
+
+      // ---------------------------------------------------------
+      // OPEN CHECKOUT
+      // ---------------------------------------------------------
+
+      razorpay.open();
+
+    } catch (error) {
+
+      console.error(
+        "Payment error:",
+        error
+      );
+
+      Swal.close();
+
+      Swal.fire({
+        icon: "error",
+
+        title:
+          "Payment Start Nahi Hua",
+
+        text:
+          "Please internet connection check karke dobara try karein.",
+
+        confirmButtonText: "OK",
+      });
+    }
+  };
+
   return (
     <section
       id="pricing"
@@ -10,9 +308,7 @@ const Pricing = () => {
     >
       <div className="ebook-pricing-container">
 
-        {/* =========================================
-            HEADING
-        ========================================== */}
+        {/* HEADING */}
 
         <motion.div
           className="pricing-heading"
@@ -34,7 +330,9 @@ const Pricing = () => {
         >
           <div className="pricing-badge">
             <span>🪷</span>
-            <span>आपकी आध्यात्मिक यात्रा के लिए</span>
+            <span>
+              आपकी आध्यात्मिक यात्रा के लिए
+            </span>
           </div>
 
           <h2>
@@ -50,14 +348,12 @@ const Pricing = () => {
 
           <p>
             700+ आध्यात्मिक प्रश्नों और उनके सरल उत्तरों को
-            एक ही Ebook में पढ़ें और अपने प्रश्नों को समझने की दिशा में आगे बढ़ें।
+            एक ही Ebook में पढ़ें और अपने प्रश्नों को समझने
+            की दिशा में आगे बढ़ें।
           </p>
         </motion.div>
 
-
-        {/* =========================================
-            PRICING CARD
-        ========================================== */}
+        {/* PRICING CARD */}
 
         <motion.div
           className="pricing-card-wrapper"
@@ -78,16 +374,11 @@ const Pricing = () => {
             ease: [0.22, 1, 0.36, 1],
           }}
         >
-
           <div className="pricing-card">
 
-            {/* Decorative glow */}
             <div className="pricing-card-glow" />
 
-
-            {/* =====================================
-                LEFT SIDE
-            ====================================== */}
+            {/* LEFT */}
 
             <div className="pricing-left">
 
@@ -104,7 +395,6 @@ const Pricing = () => {
                 सरल और विस्तृत उत्तर
               </p>
 
-
               {/* Price */}
 
               <div className="price-area">
@@ -114,6 +404,7 @@ const Pricing = () => {
                 </span>
 
                 <div className="price-main">
+
                   <span className="price-symbol">
                     ₹
                   </span>
@@ -121,6 +412,7 @@ const Pricing = () => {
                   <strong>
                     199
                   </strong>
+
                 </div>
 
                 <span className="price-note">
@@ -129,12 +421,12 @@ const Pricing = () => {
 
               </div>
 
-
               {/* CTA */}
 
               <motion.button
                 type="button"
                 className="pricing-button"
+                onClick={handleBuyNow}
                 whileHover={{
                   y: -3,
                 }}
@@ -151,7 +443,6 @@ const Pricing = () => {
                 </span>
               </motion.button>
 
-
               <div className="pricing-secure">
                 <span>🔒</span>
                 सुरक्षित भुगतान • डिजिटल डिलीवरी
@@ -159,26 +450,19 @@ const Pricing = () => {
 
             </div>
 
-
-            {/* =====================================
-                DIVIDER
-            ====================================== */}
+            {/* DIVIDER */}
 
             <div className="pricing-divider">
               <span />
             </div>
 
-
-            {/* =====================================
-                RIGHT SIDE
-            ====================================== */}
+            {/* RIGHT */}
 
             <div className="pricing-right">
 
               <div className="included-title">
                 Ebook में आपको मिलेगा
               </div>
-
 
               <div className="pricing-list">
 
@@ -193,11 +477,11 @@ const Pricing = () => {
                     </strong>
 
                     <p>
-                      विभिन्न आध्यात्मिक विषयों पर विस्तृत सामग्री
+                      विभिन्न आध्यात्मिक विषयों पर
+                      विस्तृत सामग्री
                     </p>
                   </div>
                 </div>
-
 
                 <div className="pricing-list-item">
                   <span className="pricing-check">
@@ -210,11 +494,11 @@ const Pricing = () => {
                     </strong>
 
                     <p>
-                      जटिल विषयों को आसान तरीके से समझने का प्रयास
+                      जटिल विषयों को आसान तरीके से
+                      समझने का प्रयास
                     </p>
                   </div>
                 </div>
-
 
                 <div className="pricing-list-item">
                   <span className="pricing-check">
@@ -232,7 +516,6 @@ const Pricing = () => {
                   </div>
                 </div>
 
-
                 <div className="pricing-list-item">
                   <span className="pricing-check">
                     ✓
@@ -244,11 +527,11 @@ const Pricing = () => {
                     </strong>
 
                     <p>
-                      खरीदारी के बाद Ebook तक डिजिटल पहुँच
+                      खरीदारी के बाद Ebook तक
+                      डिजिटल पहुँच
                     </p>
                   </div>
                 </div>
-
 
                 <div className="pricing-list-item">
                   <span className="pricing-check">
@@ -261,31 +544,30 @@ const Pricing = () => {
                     </strong>
 
                     <p>
-                      भक्ति, कर्म, मन, गुरु, साधना और गृहस्थ जीवन
+                      भक्ति, कर्म, मन, गुरु, साधना
+                      और गृहस्थ जीवन
                     </p>
                   </div>
                 </div>
 
               </div>
 
-
-              {/* Mini note */}
-
               <div className="pricing-note">
+
                 <span>✦</span>
 
                 <p>
                   अपने प्रश्नों को समझने और
                   साधना की दिशा में आगे बढ़ने के लिए।
                 </p>
+
               </div>
 
             </div>
 
           </div>
 
-
-          {/* Bottom trust row */}
+          {/* TRUST ROW */}
 
           <div className="pricing-trust-row">
 
@@ -313,10 +595,7 @@ const Pricing = () => {
 
         </motion.div>
 
-
-        {/* =========================================
-            SMALL CLOSING TEXT
-        ========================================== */}
+        {/* CLOSING TEXT */}
 
         <motion.p
           className="pricing-bottom-text"
@@ -335,8 +614,10 @@ const Pricing = () => {
           }}
         >
           <span>🪷</span>
+
           एक प्रश्न से शुरुआत कीजिए — शायद कोई उत्तर
           आपकी सोच को एक नई दिशा दे।
+
           <span>🪷</span>
         </motion.p>
 

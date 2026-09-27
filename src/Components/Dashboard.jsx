@@ -36,7 +36,7 @@ function Dashboard({ onMatchClick }) {
 
       const response = await api.get("/home");
 
-      console.log("API Response:", response.data);
+     
 
       setMatches(response.data?.matches || []);
 

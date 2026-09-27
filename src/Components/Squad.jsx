@@ -11,10 +11,7 @@ function Squad({ matchId }) {
             setLoading(true);
 
             const response = await BackApi.get(`/${matchId}`);
-
-            console.log("squad API:", response.data);
-
-            setMainsquad(response.data);
+              setMainsquad(response.data);
         } catch (error) {
             console.error("Squad Error:", error);
             setMainsquad(null);

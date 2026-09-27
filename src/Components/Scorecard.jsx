@@ -17,14 +17,7 @@ function Scorecard({ matchId }) {
                 setLoading(true);
             }
 
-            const response = await api.get(
-                `/mcenter/scorecard/${matchId}`
-            );
-
-            console.log(
-                "Scorecard API:",
-                response.data
-            );
+            const response = await api.get(`/mcenter/scorecard/${matchId}`);
 
             setScorecard(response.data);
 

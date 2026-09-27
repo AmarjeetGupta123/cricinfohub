@@ -32,9 +32,7 @@ const [commentaryMiniScore, setCommentaryMiniScore] = useState(null);    const [
                 setLoading(true);
             }
 
-            const response = await api.get(
-                `/mcenter/livescore/${matchId}`
-            );
+            const response = await api.get(`/mcenter/livescore/${matchId}`);
 
             setMatchData(response.data);
 
@@ -64,21 +62,15 @@ const [commentaryMiniScore, setCommentaryMiniScore] = useState(null);    const [
   try {
     const response = await api.get(`/mcenter/comm/${matchId}`);
 
-    const commentaryObject =
-      response.data?.matchCommentary || {};
+    const commentaryObject = response.data?.matchCommentary || {};
 
-    const commentaryArray =
-      Object.values(commentaryObject);
+    const commentaryArray = Object.values(commentaryObject);
 
     setCommentaryData(commentaryArray);
 
-    setCommentaryMatchHeader(
-      response.data?.matchHeader || null
-    );
+    setCommentaryMatchHeader(response.data?.matchHeader || null);
 
-    setCommentaryMiniScore(
-      response.data?.miniscore || null
-    );
+    setCommentaryMiniScore(response.data?.miniscore || null);
 
   } catch (error) {
     console.error("Commentary API Error:", error);

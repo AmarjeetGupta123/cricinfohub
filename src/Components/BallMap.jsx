@@ -29,7 +29,6 @@ function BallMap({ matchId }) {
                 `/mcenter/balls-map/${matchId}/${inningsId}`
             );
 
-            console.log(`Ball Map - Innings ${inningsId}:`, response.data);
 
             // Store complete API response
             setBallData({
