@@ -1,27 +1,29 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Swal from "sweetalert2";
 import "./Pricing.css";
+
+const API_BASE = "https://cricinfohub-api.onrender.com/api";
 
 const Pricing = () => {
   const handleBuyNow = async () => {
     try {
-      // ---------------------------------------------------------
-      // STEP 1: Create Razorpay Order
-      // ---------------------------------------------------------
+      // =========================================================
+      // STEP 1: CREATE RAZORPAY ORDER
+      // =========================================================
 
       Swal.fire({
         title: "Please wait...",
         text: "Order create ho raha hai",
         allowOutsideClick: false,
+        allowEscapeKey: false,
         didOpen: () => {
           Swal.showLoading();
         },
       });
 
-      // LOCAL + LIVE
-      // Netlify -> /backend-api -> Render .NET API
       const orderResponse = await fetch(
-        "/backend-api/Payment/create-order",
+        `${API_BASE}/Payment/create-order`,
         {
           method: "POST",
           headers: {
@@ -30,14 +32,23 @@ const Pricing = () => {
         }
       );
 
-      const orderData = await orderResponse.json();
+      let orderData;
+
+      try {
+        orderData = await orderResponse.json();
+      } catch {
+        orderData = {
+          success: false,
+          message: "Server se invalid response mila.",
+        };
+      }
 
       if (!orderResponse.ok || !orderData.success) {
         Swal.fire({
           icon: "error",
           title: "Order create nahi hua",
           text:
-            orderData.message ||
+            orderData?.message ||
             "Please thodi der baad try karein.",
           confirmButtonText: "OK",
         });
@@ -47,27 +58,29 @@ const Pricing = () => {
 
       Swal.close();
 
-      // ---------------------------------------------------------
-      // STEP 2: Razorpay Checkout
-      // ---------------------------------------------------------
+      // =========================================================
+      // STEP 2: CHECK RAZORPAY
+      // =========================================================
 
       if (!window.Razorpay) {
         Swal.fire({
           icon: "error",
           title: "Payment system unavailable",
           text:
-            "Razorpay Checkout load nahi hua. Page refresh karke try karein.",
+            "Razorpay Checkout load nahi hua. Page refresh karke dobara try karein.",
           confirmButtonText: "OK",
         });
 
         return;
       }
 
+      // =========================================================
+      // STEP 3: RAZORPAY OPTIONS
+      // =========================================================
+
       const options = {
         key: orderData.keyId,
-
         amount: orderData.amount,
-
         currency: orderData.currency,
 
         name: "भक्ति और जीवन",
@@ -77,9 +90,9 @@ const Pricing = () => {
 
         order_id: orderData.orderId,
 
-        // -------------------------------------------------------
+        // =======================================================
         // PAYMENT SUCCESS
-        // -------------------------------------------------------
+        // =======================================================
 
         handler: async function (paymentResponse) {
           try {
@@ -87,17 +100,18 @@ const Pricing = () => {
               title: "Payment verify ho raha hai...",
               text: "Please wait",
               allowOutsideClick: false,
+              allowEscapeKey: false,
               didOpen: () => {
                 Swal.showLoading();
               },
             });
 
-            // ---------------------------------------------------
-            // STEP 3: Verify Payment
-            // ---------------------------------------------------
+            // ===================================================
+            // STEP 4: VERIFY PAYMENT
+            // ===================================================
 
             const verifyResponse = await fetch(
-              "/backend-api/Payment/verify-payment",
+              `${API_BASE}/Payment/verify-payment`,
               {
                 method: "POST",
 
@@ -118,12 +132,21 @@ const Pricing = () => {
               }
             );
 
-            const verifyData =
-              await verifyResponse.json();
+            let verifyData;
 
-            // ---------------------------------------------------
+            try {
+              verifyData = await verifyResponse.json();
+            } catch {
+              verifyData = {
+                success: false,
+                message:
+                  "Verification server se invalid response mila.",
+              };
+            }
+
+            // ===================================================
             // PAYMENT VERIFIED
-            // ---------------------------------------------------
+            // ===================================================
 
             if (
               verifyResponse.ok &&
@@ -135,10 +158,12 @@ const Pricing = () => {
                 title: "Payment Successful! 🎉",
 
                 html: `
-                  <div style="font-size:15px;">
+                  <div style="font-size:15px; line-height:1.7;">
                     आपका payment successfully verify हो गया है।
                     <br />
-                    <strong>अब आपकी eBook तैयार है 📖</strong>
+                    <strong>
+                      अब आपकी eBook तैयार है 📖
+                    </strong>
                   </div>
                 `,
 
@@ -151,14 +176,12 @@ const Pricing = () => {
                 allowOutsideClick: false,
               }).then((result) => {
                 if (result.isConfirmed) {
-
-                  // ------------------------------------------------
-                  // LIVE + LOCAL
-                  // Netlify -> Render
-                  // ------------------------------------------------
+                  // =================================================
+                  // STEP 5: DOWNLOAD EBOOK
+                  // =================================================
 
                   const downloadUrl =
-                    `/backend-api/Ebook/download?token=${encodeURIComponent(
+                    `${API_BASE}/Ebook/download?token=${encodeURIComponent(
                       verifyData.downloadToken
                     )}`;
 
@@ -170,9 +193,9 @@ const Pricing = () => {
               return;
             }
 
-            // ---------------------------------------------------
+            // ===================================================
             // VERIFICATION FAILED
-            // ---------------------------------------------------
+            // ===================================================
 
             Swal.fire({
               icon: "error",
@@ -181,14 +204,12 @@ const Pricing = () => {
                 "Payment Verification Failed",
 
               text:
-                verifyData.message ||
+                verifyData?.message ||
                 "Payment verify nahi ho paya.",
 
               confirmButtonText: "OK",
             });
-
           } catch (error) {
-
             console.error(
               "Payment verification error:",
               error
@@ -198,7 +219,7 @@ const Pricing = () => {
               icon: "error",
 
               title:
-                "Something went wrong",
+                "Verification Error",
 
               text:
                 "Payment ho gaya ho sakta hai, lekin verification complete nahi ho paya. Please support se contact karein.",
@@ -208,9 +229,9 @@ const Pricing = () => {
           }
         },
 
-        // -------------------------------------------------------
+        // =======================================================
         // PREFILL
-        // -------------------------------------------------------
+        // =======================================================
 
         prefill: {
           name: "",
@@ -218,42 +239,41 @@ const Pricing = () => {
           contact: "",
         },
 
-        // -------------------------------------------------------
+        // =======================================================
         // NOTES
-        // -------------------------------------------------------
+        // =======================================================
 
         notes: {
           product:
             "Bhakti Aur Jeevan eBook",
         },
 
-        // -------------------------------------------------------
+        // =======================================================
         // THEME
-        // -------------------------------------------------------
+        // =======================================================
 
         theme: {
           color: "#9b2f1f",
         },
       };
 
-      // ---------------------------------------------------------
-      // CREATE RAZORPAY INSTANCE
-      // ---------------------------------------------------------
+      // =========================================================
+      // STEP 6: CREATE RAZORPAY INSTANCE
+      // =========================================================
 
       const razorpay =
         new window.Razorpay(options);
 
-      // ---------------------------------------------------------
+      // =========================================================
       // PAYMENT FAILED
-      // ---------------------------------------------------------
+      // =========================================================
 
       razorpay.on(
         "payment.failed",
         function (response) {
-
           console.error(
             "Razorpay payment failed:",
-            response.error
+            response?.error
           );
 
           Swal.fire({
@@ -263,7 +283,7 @@ const Pricing = () => {
               "Payment Failed ❌",
 
             text:
-              response.error?.description ||
+              response?.error?.description ||
               "Payment complete nahi ho paya.",
 
             confirmButtonText:
@@ -272,14 +292,12 @@ const Pricing = () => {
         }
       );
 
-      // ---------------------------------------------------------
-      // OPEN CHECKOUT
-      // ---------------------------------------------------------
+      // =========================================================
+      // OPEN RAZORPAY CHECKOUT
+      // =========================================================
 
       razorpay.open();
-
     } catch (error) {
-
       console.error(
         "Payment error:",
         error
@@ -294,6 +312,7 @@ const Pricing = () => {
           "Payment Start Nahi Hua",
 
         text:
+          error?.message ||
           "Please internet connection check karke dobara try karein.",
 
         confirmButtonText: "OK",
@@ -308,28 +327,35 @@ const Pricing = () => {
     >
       <div className="ebook-pricing-container">
 
-        {/* HEADING */}
+        {/* =====================================================
+            HEADING
+        ====================================================== */}
 
         <motion.div
           className="pricing-heading"
+
           initial={{
             opacity: 0,
             y: 25,
           }}
+
           whileInView={{
             opacity: 1,
             y: 0,
           }}
+
           viewport={{
             once: true,
             amount: 0.25,
           }}
+
           transition={{
             duration: 0.7,
           }}
         >
           <div className="pricing-badge">
             <span>🪷</span>
+
             <span>
               आपकी आध्यात्मिक यात्रा के लिए
             </span>
@@ -347,28 +373,35 @@ const Pricing = () => {
           </div>
 
           <p>
-            700+ आध्यात्मिक प्रश्नों और उनके सरल उत्तरों को
-            एक ही Ebook में पढ़ें और अपने प्रश्नों को समझने
-            की दिशा में आगे बढ़ें।
+            700+ आध्यात्मिक प्रश्नों और उनके सरल
+            उत्तरों को एक ही Ebook में पढ़ें और
+            अपने प्रश्नों को समझने की दिशा में
+            आगे बढ़ें।
           </p>
         </motion.div>
 
-        {/* PRICING CARD */}
+        {/* =====================================================
+            PRICING CARD
+        ====================================================== */}
 
         <motion.div
           className="pricing-card-wrapper"
+
           initial={{
             opacity: 0,
             y: 35,
           }}
+
           whileInView={{
             opacity: 1,
             y: 0,
           }}
+
           viewport={{
             once: true,
             amount: 0.2,
           }}
+
           transition={{
             duration: 0.75,
             ease: [0.22, 1, 0.36, 1],
@@ -395,7 +428,7 @@ const Pricing = () => {
                 सरल और विस्तृत उत्तर
               </p>
 
-              {/* Price */}
+              {/* PRICE */}
 
               <div className="price-area">
 
@@ -426,10 +459,13 @@ const Pricing = () => {
               <motion.button
                 type="button"
                 className="pricing-button"
+
                 onClick={handleBuyNow}
+
                 whileHover={{
                   y: -3,
                 }}
+
                 whileTap={{
                   scale: 0.98,
                 }}
@@ -553,18 +589,15 @@ const Pricing = () => {
               </div>
 
               <div className="pricing-note">
-
                 <span>✦</span>
 
                 <p>
                   अपने प्रश्नों को समझने और
                   साधना की दिशा में आगे बढ़ने के लिए।
                 </p>
-
               </div>
 
             </div>
-
           </div>
 
           {/* TRUST ROW */}
@@ -592,22 +625,25 @@ const Pricing = () => {
             </div>
 
           </div>
-
         </motion.div>
 
         {/* CLOSING TEXT */}
 
         <motion.p
           className="pricing-bottom-text"
+
           initial={{
             opacity: 0,
           }}
+
           whileInView={{
             opacity: 1,
           }}
+
           viewport={{
             once: true,
           }}
+
           transition={{
             duration: 0.6,
             delay: 0.15,
@@ -615,8 +651,8 @@ const Pricing = () => {
         >
           <span>🪷</span>
 
-          एक प्रश्न से शुरुआत कीजिए — शायद कोई उत्तर
-          आपकी सोच को एक नई दिशा दे।
+          एक प्रश्न से शुरुआत कीजिए — शायद कोई
+          उत्तर आपकी सोच को एक नई दिशा दे।
 
           <span>🪷</span>
         </motion.p>
