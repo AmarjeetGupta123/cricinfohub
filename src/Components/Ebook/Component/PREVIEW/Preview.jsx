@@ -5,19 +5,19 @@ import "./Preview.css";
 const previewPages = [
   {
     id: 1,
-    image: "../../../../../public/Ebook/previewbook1.png",
+    image: "/Ebook/previewbook1.png",
     label: "प्रश्न 01",
     title: "नाम-जप और साधना",
   },
   {
     id: 2,
-    image: "../../../../../public/Ebook/previewbook2.png",
+    image: "/Ebook/previewbook2.png",
     label: "प्रश्न 02",
     title: "गुरु और गुरु-कृपा",
   },
   {
     id: 3,
-    image: "../../../../../public/Ebook/previewbook4.png",
+    image: "/Ebook/previewbook4.png",
     label: "प्रश्न 03",
     title: "कर्म और प्रारब्ध",
   },
