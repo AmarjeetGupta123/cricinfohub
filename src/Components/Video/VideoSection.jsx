@@ -6,7 +6,7 @@ function VideoSection() {
 
   return (
     <div className="video-section">
-      <h2>भक्ति और जीवन</h2>
+      <h2>India vs West Indies Semifinal Match 2026 </h2>
 
       <div className="video-container">
 
