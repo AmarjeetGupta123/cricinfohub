@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import api from "../Services/Api";
 import { useNavigate } from "react-router-dom";
+import VideoSection from "./Video/VideoSection";
 
 function Dashboard({ onMatchClick }) {
   const [matches, setMatches] = useState([]);
@@ -643,7 +644,8 @@ function Dashboard({ onMatchClick }) {
         })}
 
       </div>
-
+      {/* video setion */}
+<VideoSection/>
     </div>
   );
 }
