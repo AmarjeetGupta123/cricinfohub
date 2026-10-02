@@ -1742,7 +1742,7 @@ flex-shrink: 0;
 
   .dashboard-header {
     align-items: flex-start;
-
+   display: none;
     gap: 12px;
   }
 
@@ -1762,6 +1762,7 @@ flex-shrink: 0;
 
   .dashboard-stats {
     margin-bottom: 24px;
+    display: none;
   }
 
   .stat-card {
@@ -1867,7 +1868,7 @@ flex-shrink: 0;
 @media (max-width: 400px) {
 
   .dashboard-header {
-    display: block;
+    display: none;
   }
 
   .match-count {
