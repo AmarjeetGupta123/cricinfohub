@@ -19,7 +19,7 @@ function VideoSection() {
             onClick={() => setPlayVideo(true)}
           >
             <img
-              src="/thumnail.png"
+              src="/thumb.png"
               alt="भक्ति और जीवन"
             />
 
