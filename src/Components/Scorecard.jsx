@@ -208,7 +208,7 @@ function Scorecard({ matchId }) {
                                 </span>
 
                                 <span className="innings-tab-score">
-  <span className="innings-team">{teamShort}</span>
+  <span className="innings-teamm">{teamShort}</span>
 
   <strong className="innings-score">
     {runs}/{wkts}
@@ -289,120 +289,7 @@ function Scorecard({ matchId }) {
 
 
 
-                        {/* =========================
-                            QUICK STATS
-                        ========================= */}
-
-                        <div className="score-quick-stats">
-
-
-                            <div className="quick-stat-card">
-
-                                <div className="quick-stat-icon">
-                                    <i className="bi bi-lightning-charge-fill"></i>
-                                </div>
-
-                                <div>
-
-                                    <span>
-                                        EXTRAS
-                                    </span>
-
-                                    <strong>
-                                        {
-                                            inning
-                                                .extrasData
-                                                ?.total ?? 0
-                                        }
-                                    </strong>
-
-                                </div>
-
-                            </div>
-
-
-
-                            <div className="quick-stat-card">
-
-                                <div className="quick-stat-icon">
-                                    <i className="bi bi-speedometer2"></i>
-                                </div>
-
-                                <div>
-
-                                    <span>
-                                        RUN RATE
-                                    </span>
-
-                                    <strong>
-                                        {
-                                            inning
-                                                .scoreDetails
-                                                ?.runRate ??
-                                            "-"
-                                        }
-                                    </strong>
-
-                                </div>
-
-                            </div>
-
-
-
-                            <div className="quick-stat-card">
-
-                                <div className="quick-stat-icon">
-                                    <i className="bi bi-x-circle-fill"></i>
-                                </div>
-
-                                <div>
-
-                                    <span>
-                                        WICKETS
-                                    </span>
-
-                                    <strong>
-                                        {
-                                            inning
-                                                .scoreDetails
-                                                ?.wickets ??
-                                            0
-                                        }
-                                    </strong>
-
-                                </div>
-
-                            </div>
-
-
-
-                            <div className="quick-stat-card">
-
-                                <div className="quick-stat-icon">
-                                    <i className="bi bi-clock-fill"></i>
-                                </div>
-
-                                <div>
-
-                                    <span>
-                                        OVERS
-                                    </span>
-
-                                    <strong>
-                                        {
-                                            inning
-                                                .scoreDetails
-                                                ?.overs ??
-                                            "-"
-                                        }
-                                    </strong>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
+                       
 
 
                         {/* =========================

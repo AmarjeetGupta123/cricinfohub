@@ -4920,45 +4920,242 @@ flex-shrink: 0;
 
 
 
+/* =========================================
+   INNINGS TABS - DESKTOP
+========================================= */
 
-/* =========================== */
 .innings-tab-score {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: nowrap;
-
-  font-size: 13px;
-  line-height: 1;
-  white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: nowrap;
+    font-size: 13px;
+    line-height: 1;
+    white-space: nowrap;
+    min-width: 0;
 }
 
-.innings-team {
-  font-weight: 700;
-  color: #dfe7f1;
+.innings-teamm {
+    font-weight: 700;
+    color: #dfe7f1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
 }
 
 .innings-score {
-  font-size: 14px;
-  font-weight: 800;
-  color: #ffffff;
-  letter-spacing: 0.2px;
+    font-size: 14px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
 }
 
 .innings-overs {
-  color: #8f9bab;
-  font-size: 11px;
-  font-weight: 600;
+    color: #8f9bab;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
 }
 
 .innings-rr {
-  color: #78cd54;
-  font-size: 11px;
-  font-weight: 700;
+    color: #78cd54;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
 }
 
 .innings-separator {
-  color: #46515f;
-  font-size: 11px;
-  opacity: 0.8;
+    color: #46515f;
+    font-size: 11px;
+    opacity: 0.8;
+    flex-shrink: 0;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 991px) {
+
+    .innings-tab-score {
+        gap: 6px;
+        font-size: 12px;
+    }
+
+    .innings-teamm {
+        max-width: 120px;
+    }
+
+    .innings-score {
+        font-size: 13px;
+    }
+
+    .innings-overs,
+    .innings-rr {
+        font-size: 10px;
+    }
+
+    .innings-separator {
+        font-size: 10px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+
+    .innings-tabs {
+        width: 100%;
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 4px 2px 8px;
+        scroll-behavior: smooth;
+
+        /* scrollbar hide */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .innings-tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    .innings-tab {
+        flex: 0 0 auto;
+        min-width: 220px;
+        max-width: 270px;
+        padding: 10px 12px;
+        border-radius: 10px;
+    }
+
+
+    .innings-tab-score {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 5px;
+        overflow: hidden;
+    }
+
+
+    .innings-teamm {
+        max-width: 80px;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 11px;
+    }
+
+
+    .innings-score {
+        font-size: 13px;
+        flex-shrink: 0;
+    }
+
+
+    .innings-overs {
+        font-size: 9px;
+        flex-shrink: 0;
+    }
+
+
+    .innings-rr {
+        font-size: 9px;
+        flex-shrink: 0;
+    }
+
+
+    .innings-separator {
+        font-size: 9px;
+        flex-shrink: 0;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+    .innings-tabs {
+        gap: 6px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .innings-tab {
+        min-width: 205px;
+        max-width: 230px;
+        padding: 9px 10px;
+        border-radius: 9px;
+    }
+
+    .innings-tab-ordinal {
+        font-size: 9px;
+    }
+
+    .innings-tab-score {
+        gap: 4px;
+    }
+
+    .innings-teamm {
+        max-width: 65px;
+        font-size: 10px;
+    }
+
+    .innings-score {
+        font-size: 12px;
+    }
+
+    .innings-overs,
+    .innings-rr {
+        font-size: 8.5px;
+    }
+
+    .innings-separator {
+        font-size: 8px;
+    }
+}
+
+
+/* =========================================
+   VERY SMALL MOBILE
+========================================= */
+
+@media (max-width: 360px) {
+
+    .innings-tab {
+        min-width: 190px;
+        max-width: 205px;
+        padding: 8px;
+    }
+
+    .innings-teamm {
+        max-width: 55px;
+    }
+
+    .innings-tab-score {
+        gap: 3px;
+    }
+
+    .innings-score {
+        font-size: 11px;
+    }
+
+    .innings-overs,
+    .innings-rr {
+        font-size: 8px;
+    }
 }
